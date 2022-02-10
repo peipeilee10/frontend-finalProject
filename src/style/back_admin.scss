@@ -1,0 +1,16 @@
+#adminHeader{
+  background: $lightblue;
+  color: $content-text;
+  .a{
+    color:$cyancolor
+  }
+}
+
+// 商品管理頁面
+#adminOrders{
+  margin-top: 80px;
+  h1{
+    color: $content-text;
+    text-align: center !important;
+  }
+}

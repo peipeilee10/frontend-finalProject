@@ -1,0 +1,40 @@
+#headernav {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  .v-btn__content {
+    font-size: 1.2rem !important;
+    font-weight: 300;
+  }
+  .logoimg {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    // z-index: 9999;
+    width: 150px;
+  }
+  .appbar {
+    margin-top: 10px !important;
+  }
+  #header {
+    height: 100px;
+    padding: 2rem 0;
+    background-color: white;
+  }
+}
+
+// #navbar {
+//   position: fixed;
+// }
+
+#footer {
+  color: white;
+  .membercenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

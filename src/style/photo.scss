@@ -1,0 +1,14 @@
+#photos {
+  padding: 200px 0 200px 0;
+  h1 {
+    color: $content-text;
+    text-align: center;
+    padding-bottom: 80px;
+    letter-spacing: 0.5rem;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

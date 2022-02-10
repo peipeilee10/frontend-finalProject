@@ -1,0 +1,29 @@
+#serviceitem {
+  width: 60%;
+  margin: auto;
+  padding: 200px 0;
+  font-size: 1rem;
+  text-align: center;
+  #apple {
+    font-size: 3rem;
+  }
+  h1 {
+    margin-bottom: 80px;
+    color: $content-text;
+    text-align: center;
+  }
+  .servicebtn {
+    width: 150px;
+    height: 50px;
+    font-size: 1.5rem;
+    line-height: 50px;
+  }
+
+  .serviceMemo {
+    margin-top: 100px;
+    margin-left: 100px;
+    text-align: left;
+    width: 80%;
+    color: $grey;
+  }
+}

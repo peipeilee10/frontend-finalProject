@@ -1,0 +1,48 @@
+#member{
+  padding: 200px 0;
+  .box{
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid black;
+    background: white;
+    border-radius: 30px;
+  }
+  .v-tab{
+    color: $content-text;
+  }
+  .v-tabs-slider-wrapper{
+    color: $content-text !important;
+  }
+  
+}
+
+#membersettings{
+  h1{
+    color: $content-text;
+    letter-spacing: .5rem;
+  }
+  .save-btn{
+    width: 200px;
+    background-color: $cyancolor;
+    color: white;
+    text-align: right;
+  }
+}
+
+#memberOrders{
+  h1{
+    color: $content-text;
+    letter-spacing: .5rem;
+  }
+  .v-data-table > .v-data-table__wrapper > table > thead > tr > th{
+    font-size: 16px;
+    text-align: center !important;
+    color: $content-text;
+  }
+  .v-application{
+    text-align: center !important;
+  }
+}
+
