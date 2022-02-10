@@ -1,3 +1,36 @@
-#appointment{
+#appointment {
+  padding: 200px 0;
+  .v-chip-group .v-slide-group__content {
+    padding: 10px 0;
+  }
+  .item-title {
+    h2 {
+      color: $content-text;
+    }
+    p {
+      font-weight: 300;
+    }
+  }
+  .pet-type,
+  .booking-time {
+    .item-title {
+      color: $content-text;
+    }
+  }
+
+  .appointmentcard {
+    position: relative;
+    .price {
+      position: absolute;
+      top: 5%;
+      right: 3%;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: $content-text;
+    }
+  }
+}
+
+#appointmentCheckout {
   padding: 200px 0;
 }
