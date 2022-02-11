@@ -41,3 +41,16 @@ export const extend = (state, data) => {
 export const updateCart = (state, data) => {
   state.cart = data
 }
+
+export const appointment = (state, data) => {
+  state.appointment.serviceitem = data.serviceitem
+  state.appointment.pettype = data.pettype
+  state.appointment.time = data.time
+  state.appointment.name = data.name
+  state.appointment.phone = data.phone
+  state.appointment.email = data.email
+  state.appointment.petname = data.petname
+  state.appointment.pettype = data.pettype
+  state.appointment.appointmentDate = data.appointmentDate
+  state.appointment.memo = data.memo
+}

@@ -33,4 +33,13 @@
 
 #appointmentCheckout {
   padding: 200px 0;
+  .checkout-btn {
+    background-color: $yellow;
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+  }
 }

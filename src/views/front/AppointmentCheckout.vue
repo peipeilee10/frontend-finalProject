@@ -3,11 +3,15 @@
     <v-stepper v-model="e1">
       <!-- 進度條 -->
       <v-stepper-header>
-        <v-stepper-step :complete="e1 > 1" step="1">預約資訊</v-stepper-step>
+        <v-stepper-step :complete="e1 > 1" step="1" color="#00ACC1">
+          預約資訊
+        </v-stepper-step>
 
-        <v-divider></v-divider>
+        <v-divider color="#00ACC1"></v-divider>
 
-        <v-stepper-step :complete="e1 > 2" step="2">確認預約</v-stepper-step>
+        <v-stepper-step :complete="e1 > 2" step="2" color="#00ACC1">
+          確認預約
+        </v-stepper-step>
       </v-stepper-header>
 
       <!--內容區 -->
@@ -15,12 +19,7 @@
         <!-- 預約資訊 -->
         <v-stepper-content step="1">
           <h1 class="text-center mb-15 mt-10">請填寫預約資訊</h1>
-          <v-form
-            ref="form"
-            v-model="valid"
-            lazy-validation
-            @submit.prevent="submitorders"
-          >
+          <v-form ref="form" lazy-validation @submit.prevent="submitorders">
             <v-label for="name">預約人姓名</v-label>
             <v-text-field
               id="name"
@@ -30,7 +29,45 @@
               required
             ></v-text-field>
 
-            <v-label for="email">預約人電話</v-label>
+            <v-label for="contact">預約人電話</v-label>
+            <v-text-field
+              id="contact"
+              v-model="form.phone"
+              :rules="rules.phoneRules"
+              placeholder="預約人聯絡電話"
+              required
+            ></v-text-field>
+
+            <v-label for="contact">預約日期</v-label>
+            <v-col cols="12">
+              <v-menu
+                v-model="fromDateMenu"
+                :close-on-content-click="false"
+                :nudge-right="40"
+                transition="scale-transition"
+                offset-y
+                max-width="290px"
+                min-width="290px"
+              >
+                <template v-slot:activator="{ on }">
+                  <v-text-field
+                    label="請選擇日期"
+                    prepend-icon="mdi-calendar"
+                    readonly
+                    :value="fromDateDisp"
+                    v-on="on"
+                    required
+                  ></v-text-field>
+                </template>
+                <v-date-picker
+                  locale="en-in"
+                  v-model="form.appointmentDate"
+                  @input="fromDateMenu = false"
+                ></v-date-picker>
+              </v-menu>
+            </v-col>
+
+            <v-label for="email">預約人信箱</v-label>
             <v-text-field
               id="email"
               v-model="form.email"
@@ -39,50 +76,84 @@
               required
             ></v-text-field>
 
-            <v-label for="contact">預約人信箱</v-label>
+            <v-label for="petname">毛孩名字</v-label>
             <v-text-field
-              id="contact"
-              v-model="form.phone"
-              :rules="rules.phoneRules"
-              placeholder="訂購人聯絡電話"
-              required
+              id="petname"
+              v-model="form.petname"
+              placeholder="毛孩名字"
             ></v-text-field>
 
-            <v-label for="contact">毛孩名字</v-label>
+            <v-label for="pettype">毛孩品種</v-label>
             <v-text-field
-              id="contact"
-              v-model="form.phone"
-              :rules="rules.phoneRules"
-              placeholder="訂購人聯絡電話"
-              required
-            ></v-text-field>
-
-            <v-label for="contact">毛孩品種</v-label>
-            <v-text-field
-              id="contact"
-              v-model="form.phone"
-              :rules="rules.phoneRules"
-              placeholder="訂購人聯絡電話"
-              required
+              id="pettype"
+              v-model="form.pettype"
+              placeholder="毛孩品種"
             ></v-text-field>
 
             <v-label for="memo">備註：</v-label>
             <v-textarea outlined id="memo" v-model="form.memo"></v-textarea>
           </v-form>
 
-          <v-btn class="cart-btn" @click="e1 = 1" text>上一步</v-btn>
+          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
 
-          <v-btn class="cart-btn ml-10" @click="e1 = 3" type="submit" text>
-            下一步
-          </v-btn>
+          <v-btn class="checkout-btn ml-10" @click="e1 = 2" text>下一步</v-btn>
         </v-stepper-content>
 
+        <!-- 確認預約 -->
         <v-stepper-content step="2">
-          <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
+          <h1 class="text-center mb-15 mt-10">確認預約</h1>
+          <v-simple-table class="mb-15 text-center">
+            <template v-slot:default>
+              <thead>
+                <tr>
+                  <th class="text-center">項目</th>
+                  <th class="text-center">資訊</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>預約日期</td>
+                  <td>{{ form.appointmentDate }}</td>
+                </tr>
+                <tr>
+                  <td>預約時段</td>
+                  <td>{{form.time}}</td>
+                </tr>
+                <tr>
+                  <td>預約項目</td>
+                  <td>{{form.serviceitem}}</td>
+                </tr>
+                <tr>
+                  <td>預約人姓名</td>
+                  <td>{{ form.name }}</td>
+                </tr>
+                <tr>
+                  <td>預約人電話</td>
+                  <td>{{ form.phone }}</td>
+                </tr>
+                <tr>
+                  <td>預約人信箱</td>
+                  <td>{{ form.email }}</td>
+                </tr>
+                <tr>
+                  <td>毛小孩名字</td>
+                  <td>{{ form.petname }}</td>
+                </tr>
+                <tr>
+                  <td>毛小孩品種</td>
+                  <td>{{ form.pettype }}</td>
+                </tr>
+                <tr>
+                  <td>備註</td>
+                  <td>{{ form.memo }}</td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
+          <v-btn class="checkout-btn ml-5" @click="e1 = 1" text>回第一頁</v-btn>
 
-          <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
-
-          <v-btn text>Cancel</v-btn>
+          <v-btn class="checkout-btn ml-5" text>確認結帳</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -93,6 +164,7 @@
   export default {
     data() {
       return {
+        fromDateMenu: false,
         e1: 1,
         products: [],
         headers: [
@@ -103,12 +175,14 @@
         ],
         form: {
           name: '',
-          email: '',
-          address: '',
           phone: '',
+          email: '',
+          petname: '',
+          pettype: '',
+          appointmentDate: null,
           memo: '',
-          pay: '貨到付款',
-          pickupway: '宅配'
+          serviceitem: '',
+          time: ''
         }
       }
     },
@@ -123,63 +197,13 @@
           phoneRules: [v => !!v || '電話必填']
         }
       },
-      total() {
-        return this.products.reduce((accumulator, currentValue) => {
-          return (
-            accumulator + currentValue.quantity * currentValue.product.price
-          )
-        }, 0)
+      fromDateDisp() {
+        return this.form.appointmentDate
       }
     },
     methods: {
-      async updateCart(index, quantity) {
-        try {
-          // 更新購物車
-          await this.api.patch(
-            'users/me/cart',
-            {
-              product: this.products[index].product._id,
-              quantity
-            },
-            {
-              headers: {
-                authorization: 'Bearer ' + this.user.token
-              }
-            }
-          )
-          // 刪除
-          if (quantity === 0) {
-            this.products.splice(index, 1)
-            this.$store.commit('user/updateCart', this.user.cart - 1)
-          }
-        } catch (error) {
-          this.$swal({
-            icon: 'error',
-            title: '失敗',
-            text: '修改購物車失敗'
-          })
-        }
-      },
-      async checkout() {
-        try {
-          await this.api.post('/orders', this.form, {
-            headers: {
-              authorization: 'Bearer ' + this.user.token
-            }
-          })
-          this.$swal({
-            icon: 'success',
-            title: '成功',
-            text: '已成功完成下定!'
-          })
-          this.$router.push('/back/member/orders')
-        } catch (error) {
-          this.$swal({
-            icon: 'error',
-            title: '失敗',
-            text: '結帳失敗'
-          })
-        }
+      aa() {
+        console.log(this.form)
       }
     },
     async created() {
@@ -188,6 +212,10 @@
       this.form.email = this.user.email
       this.form.address = this.user.address
       this.form.phone = this.user.phone
+      this.form.pettype = this.user.appointment.pettype
+      this.form.serviceitem = this.user.appointment.serviceitem
+      this.form.time = this.user.appointment.time
+
       try {
         const { data } = await this.api.get('users/me/cart', {
           headers: {

@@ -8,7 +8,18 @@ export default () => {
     cart: 0,
     name: '',
     address: '',
-    phone: ''
+    phone: '',
+    appointment: {
+      serviceitem: '',
+      pettype: '',
+      time: '',
+      name: '',
+      phone: '',
+      email: '',
+      petname: '',
+      appointmentDate: null,
+      memo: '',
+    }
 
   }
 }
