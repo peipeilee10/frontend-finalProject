@@ -265,7 +265,6 @@
                     class="orange darken-1 white--text"
                     depressed
                     @click="gotobooking"
-                    to="/appointmentCheckout"
                   >
                     前往預約
                   </v-btn>
@@ -295,8 +294,8 @@
     methods: {
       gotobooking() {
         this.$store.commit('user/appointment', this.appointment)
-        this.$router.push('/appointmentCheckout')
         console.log(this.appointment)
+        this.$router.push('/appointmentCheckout')
       }
     }
   }

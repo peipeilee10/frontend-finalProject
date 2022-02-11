@@ -19,7 +19,7 @@
         <!-- 預約資訊 -->
         <v-stepper-content step="1">
           <h1 class="text-center mb-15 mt-10">請填寫預約資訊</h1>
-          <v-form ref="form" lazy-validation @submit.prevent="submitorders">
+          <v-form ref="form" lazy-validation>
             <v-label for="name">預約人姓名</v-label>
             <v-text-field
               id="name"
@@ -61,7 +61,7 @@
                 </template>
                 <v-date-picker
                   locale="en-in"
-                  v-model="form.appointmentDate"
+                  v-model="form.appointmentdate"
                   @input="fromDateMenu = false"
                 ></v-date-picker>
               </v-menu>
@@ -83,10 +83,10 @@
               placeholder="毛孩名字"
             ></v-text-field>
 
-            <v-label for="pettype">毛孩品種</v-label>
+            <v-label for="petbreed">毛孩品種</v-label>
             <v-text-field
-              id="pettype"
-              v-model="form.pettype"
+              id="petbreed"
+              v-model="form.petbreed"
               placeholder="毛孩品種"
             ></v-text-field>
 
@@ -94,8 +94,7 @@
             <v-textarea outlined id="memo" v-model="form.memo"></v-textarea>
           </v-form>
 
-          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
-
+          <v-btn class="checkout-btn" to="/appointment" text>重新預約</v-btn>
           <v-btn class="checkout-btn ml-10" @click="e1 = 2" text>下一步</v-btn>
         </v-stepper-content>
 
@@ -113,15 +112,19 @@
               <tbody>
                 <tr>
                   <td>預約日期</td>
-                  <td>{{ form.appointmentDate }}</td>
+                  <td>{{ form.appointmentdate }}</td>
                 </tr>
                 <tr>
                   <td>預約時段</td>
-                  <td>{{form.time}}</td>
+                  <td>{{form.appointmenttime}}</td>
                 </tr>
                 <tr>
                   <td>預約項目</td>
                   <td>{{form.serviceitem}}</td>
+                </tr>
+                <tr>
+                  <td>毛小孩類型</td>
+                  <td>{{ form.pettype }}</td>
                 </tr>
                 <tr>
                   <td>預約人姓名</td>
@@ -141,7 +144,7 @@
                 </tr>
                 <tr>
                   <td>毛小孩品種</td>
-                  <td>{{ form.pettype }}</td>
+                  <td>{{ form.petbreed }}</td>
                 </tr>
                 <tr>
                   <td>備註</td>
@@ -150,10 +153,9 @@
               </tbody>
             </template>
           </v-simple-table>
-          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
-          <v-btn class="checkout-btn ml-5" @click="e1 = 1" text>回第一頁</v-btn>
 
-          <v-btn class="checkout-btn ml-5" text>確認結帳</v-btn>
+          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
+          <v-btn class="checkout-btn ml-5" text @click="check"> 送出預約</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -166,7 +168,6 @@
       return {
         fromDateMenu: false,
         e1: 1,
-        products: [],
         headers: [
           { text: '圖片', value: 'image' },
           { text: '商品名', value: 'name' },
@@ -178,11 +179,12 @@
           phone: '',
           email: '',
           petname: '',
-          pettype: '',
-          appointmentDate: null,
+          petbreed: '',
+          appointmentdate: null,
           memo: '',
           serviceitem: '',
-          time: ''
+          pettype: '',
+          appointmenttime: ''
         }
       }
     },
@@ -202,8 +204,31 @@
       }
     },
     methods: {
-      aa() {
+      async check() {
+        // const fd = new FormData()
+        // for (const key in this.form) {
+        //   fd.append(key, this.form[key])
+        // }
+
+        try {
         console.log(this.form)
+        await this.api.post('/appointments', this.form, {
+          headers: {
+              authorization: 'Bearer ' + this.user.token
+            }
+        })
+        this.$swal({
+          icon: 'success',
+          title: '成功',
+          text: '已成功完成預約!'
+        })
+        } catch (error) {
+          this.$swal({
+            icon: 'error',
+            title: '失敗',
+            text: '預約失敗'
+          })
+        }
       }
     },
     async created() {
@@ -214,22 +239,9 @@
       this.form.phone = this.user.phone
       this.form.pettype = this.user.appointment.pettype
       this.form.serviceitem = this.user.appointment.serviceitem
-      this.form.time = this.user.appointment.time
-
-      try {
-        const { data } = await this.api.get('users/me/cart', {
-          headers: {
-            authorization: 'Bearer ' + this.user.token
-          }
-        })
-        this.products = data.result
-      } catch (error) {
-        this.$swal({
-          icon: 'error',
-          title: '失敗',
-          text: '取得購物車失敗'
-        })
-      }
+      this.form.appointmenttime = this.user.appointment.time
+      // console.log(this.form)
     }
   }
+
 </script>

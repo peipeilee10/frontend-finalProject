@@ -42,4 +42,13 @@
     font-weight: bolder;
     letter-spacing: 0.1rem;
   }
+  .v-stepper__header {
+    box-shadow: none;
+  }
+  .v-sheet {
+    box-shadow: none;
+  }
+  h1 {
+    color: $content-text;
+  }
 }
