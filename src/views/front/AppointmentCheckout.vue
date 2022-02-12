@@ -155,7 +155,7 @@
           </v-simple-table>
 
           <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
-          <v-btn class="checkout-btn ml-5" text @click="check"> 送出預約</v-btn>
+          <v-btn class="checkout-btn ml-5" text @click="appointmentCheckOut"> 送出預約</v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -184,7 +184,7 @@
           memo: '',
           serviceitem: '',
           pettype: '',
-          appointmenttime: ''
+          appointmenttime: null
         }
       }
     },
@@ -200,16 +200,11 @@
         }
       },
       fromDateDisp() {
-        return this.form.appointmentDate
+        return this.form.appointmentdate
       }
     },
     methods: {
-      async check() {
-        // const fd = new FormData()
-        // for (const key in this.form) {
-        //   fd.append(key, this.form[key])
-        // }
-
+      async appointmentCheckOut() {
         try {
         console.log(this.form)
         await this.api.post('/appointments', this.form, {

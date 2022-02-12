@@ -264,7 +264,7 @@
                   <v-btn
                     class="orange darken-1 white--text"
                     depressed
-                    @click="gotobooking"
+                    @click="gotoappointment"
                   >
                     前往預約
                   </v-btn>
@@ -292,10 +292,19 @@
       }
     },
     methods: {
-      gotobooking() {
-        this.$store.commit('user/appointment', this.appointment)
-        console.log(this.appointment)
-        this.$router.push('/appointmentCheckout')
+      gotoappointment() {
+        if (this.user.token.length === 0) {
+          this.$swal({
+            icon: 'error',
+            title: '錯誤',
+            text: '請先登入'
+          })
+          this.$router.push('/login')
+        } else {
+          this.$store.commit('user/appointment', this.appointment)
+          console.log(this.appointment)
+          this.$router.push('/appointmentCheckout')
+        }
       }
     }
   }

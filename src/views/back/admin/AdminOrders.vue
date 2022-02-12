@@ -4,7 +4,6 @@
     :headers="headers"
     :items="orders"
     :single-expand="singleExpand"
-    :expanded.sync="expanded"
     item-key="name"
     show-expand
     class="elevation-1"
