@@ -9,7 +9,9 @@
           <v-col>
             <v-row>
               <v-col class="productName">{{ name }}</v-col>
-              <v-col class="productPrice text-right">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(price) }}</v-col>
+              <v-col class="productPrice text-right">
+                $&nbsp;{{ new Intl.NumberFormat('en-IN').format(price) }}
+              </v-col>
             </v-row>
           </v-col>
           <v-col class="description">
@@ -17,7 +19,14 @@
           </v-col>
           <v-row>
             <v-col>
-              <v-text-field outlined type="number" label="數量" style="width: 500px" :rules="rules.quantityRules" v-model.number="quantity"></v-text-field>
+              <v-text-field
+                outlined
+                type="number"
+                label="數量"
+                style="width: 500px"
+                :rules="rules.quantityRules"
+                v-model.number="quantity"
+              ></v-text-field>
             </v-col>
             <v-col class="text-right">
               <v-btn class="addCart" @click="addCart">加入購物車</v-btn>
@@ -43,7 +52,10 @@
     computed: {
       rules() {
         return {
-          quantityRules: [v => !!v || '數量為必填欄位', v => (v && v >= 0) || '數量不得低於一個']
+          quantityRules: [
+            v => !!v || '數量為必填欄位',
+            v => (v && v >= 0) || '數量不得低於一個'
+          ]
         }
       }
     },
@@ -58,7 +70,9 @@
     },
     async created() {
       try {
-        const { data } = await this.api.get('/products/' + this.$route.params.id)
+        const { data } = await this.api.get(
+          '/products/' + this.$route.params.id
+        )
         console.log(this.$route.params.id)
         this.name = data.result.name
         this.price = data.result.price

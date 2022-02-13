@@ -58,7 +58,7 @@
                         <span class="item-title">毛孩類型</span>
                         <v-chip-group
                           v-model="appointment.pettype"
-                          active-class="orange darken-1 accent-4 white--text"
+                          active-class="orange darken-1 white--text"
                         >
                           <v-chip label value="小型犬">小型犬</v-chip>
                           <v-chip label value="中型犬">中型犬</v-chip>
@@ -72,7 +72,7 @@
                         <span class="item-title">預約時段</span>
                         <v-chip-group
                           v-model="appointment.time"
-                          active-class="orange darken-1 accent-4 white--text"
+                          active-class="orange darken-1 white--text"
                         >
                           <v-chip value="11:30">11:30</v-chip>
                           <v-chip value="12:30">12:30</v-chip>
@@ -197,7 +197,7 @@
                         <span class="item-title">毛孩類型</span>
                         <v-chip-group
                           v-model="appointment.pettype"
-                          active-class="orange darken-1 accent-4 white--text"
+                          active-class="orange darken-1 white--text"
                         >
                           <v-chip label value="長毛">長毛</v-chip>
                           <v-chip label value="短毛">短毛</v-chip>
@@ -210,7 +210,7 @@
                         <span class="item-title">預約時段</span>
                         <v-chip-group
                           v-model="appointment.time"
-                          active-class="orange darken-1 accent-4 white--text"
+                          active-class="orange darken-1 white--text"
                         >
                           <v-chip value="11:30">11:30</v-chip>
                           <v-chip value="12:30">12:30</v-chip>
