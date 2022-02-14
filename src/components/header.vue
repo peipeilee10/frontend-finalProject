@@ -83,7 +83,7 @@
       >
         <v-row class="d-flex justify-center">
           <v-toolbar-items>
-            <v-btn
+            <!-- <v-btn
               :ripple="false"
               plain
               text
@@ -91,7 +91,7 @@
               class="white--text navbartext"
             >
               關於我們
-            </v-btn>
+            </v-btn> -->
             <v-btn
               :ripple="false"
               plain

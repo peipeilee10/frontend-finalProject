@@ -11,18 +11,20 @@
               <v-row no-gutters>
                 <!-- 圖片 -->
                 <v-col cols="4" class="text-center">
-                  <v-avatar class="ma-10" size="300" tile>
-                    <v-img
-                      v-if="pet === '貓貓'"
-                      src="../../assets/image/appointmentcat.jpg"
-                      style="border-radius: 10px"
-                    ></v-img>
-                    <v-img
-                      v-if="pet === '狗狗'"
-                      src="../../assets/image/appointment.jpg"
-                      style="border-radius: 10px"
-                    ></v-img>
-                  </v-avatar>
+                  <v-img
+                    v-if="pet === '貓貓'"
+                    src="../../assets/image/appointmentcat.jpg"
+                    style="border-radius: 8px; height: 100%; object-fit: cover"
+                  ></v-img>
+                  <v-img
+                    v-if="pet === '狗狗'"
+                    src="../../assets/image/appointment.jpg"
+                    style="
+                      border-radius: 8px;
+                      height: 100%;
+                      object-fit: contain;
+                    "
+                  ></v-img>
                 </v-col>
 
                 <!-- 選單 -->
