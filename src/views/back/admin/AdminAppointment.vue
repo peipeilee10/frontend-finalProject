@@ -67,6 +67,7 @@
             :activator="selectedElement"
             offset-x
           >
+            <!-- 細項 -->
             <v-card color="grey lighten-4" min-width="350px" flat>
               <v-toolbar :color="selectedEvent.color" dark>
                 <v-btn icon>
@@ -74,15 +75,16 @@
                 </v-btn>
                 <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
               </v-toolbar>
               <v-card-text>
-                <span v-html="selectedEvent.details"></span>
+                <!-- {{ selectedEvent.appointment }} -->
+                <p>預約人姓名：{{ selectedEvent.appointment.name }}</p>
+                <p>預約人電話：{{ selectedEvent.appointment.phone }}</p>
+                <p>預約人信箱：{{ selectedEvent.appointment.email }}</p>
+                <p>預約人電話：{{ selectedEvent.appointment.pettype }}</p>
+                <p>毛孩姓名：{{ selectedEvent.appointment.petname }}</p>
+                <p>毛孩品種：{{ selectedEvent.appointment.petbreed }}</p>
+                <p>服務項目：{{ selectedEvent.appointment.serviceitem }}</p>
               </v-card-text>
               <v-card-actions>
                 <v-btn text color="secondary" @click="selectedOpen = false">
@@ -98,8 +100,6 @@
 </template>
 
 <script>
-  import { appointment } from '../../../store/user/mutations'
-
   export default {
     data: () => ({
       focus: '',
@@ -110,20 +110,25 @@
         day: 'Day',
         '4day': '4 Days'
       },
-      selectedEvent: {},
+      selectedEvent: {
+        appointment: {
+          memo: '',
+          name: '',
+          email: '',
+          phone: '',
+          pettype: '',
+          petname: '',
+          petbreed: '',
+          serviceitem: '',
+          appointmentdate: '',
+          appointmenttime: ''
+        }
+      },
       selectedElement: null,
       selectedOpen: false,
       events: [],
       eventsAll: [],
-      colors: [
-        'blue',
-        'indigo',
-        'deep-purple',
-        'cyan',
-        'green',
-        'orange',
-        'grey darken-1'
-      ]
+      colors: ['blue', 'indigo', 'cyan', 'green', 'orange']
     }),
     mounted() {
       this.$refs.calendar.checkChange()
@@ -185,7 +190,9 @@
               ' ' +
               appointment.appointment.appointmenttime
           )
-          appointment.name = appointment.appointment.name
+          appointment.name =
+            appointment.appointment.name +
+            appointment.appointment.appointmenttime
           appointment.end = new Date(
             appointment.appointment.appointmentdate +
               ' ' +

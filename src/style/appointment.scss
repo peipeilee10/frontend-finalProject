@@ -15,19 +15,17 @@
 }
 
 .appointmentcard {
-  position: relative;
   .price {
-    position: absolute;
-    top: 5%;
-    right: 3%;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: $content-text;
+    color: #d81b60;
   }
 }
 
 #appointmentCheckout {
+  margin: auto;
   padding: 200px 0;
+  width: 50%;
   .checkout-btn {
     background-color: $yellow;
     border-radius: 15px;

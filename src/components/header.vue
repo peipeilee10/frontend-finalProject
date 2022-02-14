@@ -7,13 +7,13 @@
       ></v-app-bar-nav-icon>
       <v-col class="d-flex justify-center align-center hidden-sm-and-down">
         <a href="#" class="me-2">
-          <v-icon large color="cyan darken-1">mdi-facebook</v-icon>
+          <v-icon large color="grey darken-1">mdi-facebook</v-icon>
         </a>
         <a href="#" class="me-2">
-          <v-icon large color="cyan darken-1">mdi-instagram</v-icon>
+          <v-icon large color="grey darken-1">mdi-instagram</v-icon>
         </a>
         <a href="#" class="me-2">
-          <v-icon large color="cyan darken-1">mdi-forum</v-icon>
+          <v-icon large color="grey darken-1">mdi-forum</v-icon>
         </a>
       </v-col>
       <v-col class="d-flex justify-center align-center">
@@ -24,7 +24,7 @@
       <v-col class="d-flex justify-center align-center">
         <!-- 尚未登入 -->
         <router-link to="/login">
-          <v-icon large color="cyan darken-1" class="mr-5" v-if="!user.isLogin">
+          <v-icon large color="grey darken-1" class="mr-5" v-if="!user.isLogin">
             mdi-account-arrow-left
           </v-icon>
         </router-link>
@@ -32,7 +32,7 @@
         <router-link to="/back/member">
           <v-icon
             large
-            color="cyan darken-1"
+            color="grey darken-1"
             class="mr-5"
             v-if="user.isLogin && !user.isAdmin"
           >
@@ -42,7 +42,7 @@
         <router-link to="/back/admin">
           <v-icon
             large
-            color="cyan darken-1"
+            color="grey darken-1"
             class="mr-5"
             v-if="user.isLogin && user.isAdmin"
           >
@@ -56,14 +56,14 @@
             v-if="user.cart"
             class="mb-5"
           ></v-badge>
-          <v-icon large color="cyan darken-1" class="mr-5" v-if="user.isLogin">
+          <v-icon large color="grey darken-1" class="mr-5" v-if="user.isLogin">
             mdi-cart-outline +
           </v-icon>
         </router-link>
         <router-link to="/">
           <v-icon
             large
-            color="cyan darken-1"
+            color="grey darken-1"
             v-if="user.isLogin"
             @click="logout"
           >

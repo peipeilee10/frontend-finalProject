@@ -155,7 +155,7 @@ const routes = [
         },
         children: [
           {
-            path: 'appointment',
+            path: '/',
             name: 'AdminAppointment',
             component: () => import(/* webpackChunkName: "admin" */ '../views/back/admin/AdminAppointment.vue'),
             meta: {

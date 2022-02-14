@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="appointmentCheckout">
+  <div id="appointmentCheckout">
     <v-stepper v-model="e1">
       <!-- 進度條 -->
       <v-stepper-header>
@@ -99,7 +99,7 @@
         </v-stepper-content>
 
         <!-- 確認預約 -->
-        <v-stepper-content step="2">
+        <v-stepper-content step="2" class="confirmAppointment">
           <h1 class="text-center mb-15 mt-10">確認預約</h1>
           <v-simple-table class="mb-15 text-center">
             <template v-slot:default>

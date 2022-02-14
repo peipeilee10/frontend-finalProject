@@ -4,7 +4,8 @@
     :headers="headers"
     :items="orders"
     :single-expand="singleExpand"
-    item-key="name"
+    :expanded.sync="expanded"
+    item-key="_id"
     show-expand
     class="elevation-1"
   >
@@ -67,6 +68,7 @@
 export default {
   data() {
     return {
+      expanded: [],
       orders: [],
       singleExpand: false,
       headers: [
