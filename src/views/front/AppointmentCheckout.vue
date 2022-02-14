@@ -38,7 +38,7 @@
               required
             ></v-text-field>
 
-            <v-label for="contact">預約日期</v-label>
+            <!-- <v-label for="contact">預約日期</v-label>
             <v-col cols="12">
               <v-menu
                 v-model="fromDateMenu"
@@ -65,7 +65,7 @@
                   @input="fromDateMenu = false"
                 ></v-date-picker>
               </v-menu>
-            </v-col>
+            </v-col> -->
 
             <v-label for="email">預約人信箱</v-label>
             <v-text-field
@@ -116,11 +116,11 @@
                 </tr>
                 <tr>
                   <td>預約時段</td>
-                  <td>{{form.appointmenttime}}</td>
+                  <td>{{ form.appointmenttime }}</td>
                 </tr>
                 <tr>
                   <td>預約項目</td>
-                  <td>{{form.serviceitem}}</td>
+                  <td>{{ form.serviceitem }}</td>
                 </tr>
                 <tr>
                   <td>毛小孩類型</td>
@@ -155,7 +155,9 @@
           </v-simple-table>
 
           <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
-          <v-btn class="checkout-btn ml-5" text @click="appointmentCheckOut"> 送出預約</v-btn>
+          <v-btn class="checkout-btn ml-5" text @click="appointmentCheckOut">
+            送出預約
+          </v-btn>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -198,25 +200,22 @@
           ],
           phoneRules: [v => !!v || '電話必填']
         }
-      },
-      fromDateDisp() {
-        return this.form.appointmentdate
       }
     },
     methods: {
       async appointmentCheckOut() {
         try {
-        console.log(this.form)
-        await this.api.post('/appointments', this.form, {
-          headers: {
+          console.log(this.form)
+          await this.api.post('/appointments', this.form, {
+            headers: {
               authorization: 'Bearer ' + this.user.token
             }
-        })
-        this.$swal({
-          icon: 'success',
-          title: '成功',
-          text: '已成功完成預約!'
-        })
+          })
+          this.$swal({
+            icon: 'success',
+            title: '成功',
+            text: '已成功完成預約!'
+          })
         } catch (error) {
           this.$swal({
             icon: 'error',
@@ -235,8 +234,8 @@
       this.form.pettype = this.user.appointment.pettype
       this.form.serviceitem = this.user.appointment.serviceitem
       this.form.appointmenttime = this.user.appointment.time
+      this.form.appointmentdate = this.user.appointment.appointmentDate
       // console.log(this.form)
     }
   }
-
 </script>

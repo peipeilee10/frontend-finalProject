@@ -4,30 +4,25 @@
     padding: 10px 0;
   }
   .item-title {
-    h2 {
-      color: $content-text;
-    }
     p {
       font-weight: 300;
     }
   }
-  .pet-type,
-  .booking-time {
-    .item-title {
-      color: $content-text;
-    }
+  .itemTitle {
+    color: $content-text;
+    font-weight: 500;
   }
+}
 
-  .appointmentcard {
-    position: relative;
-    .price {
-      position: absolute;
-      top: 5%;
-      right: 3%;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: $content-text;
-    }
+.appointmentcard {
+  position: relative;
+  .price {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $content-text;
   }
 }
 

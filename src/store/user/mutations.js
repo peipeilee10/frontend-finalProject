@@ -9,7 +9,7 @@ export const login = (state, data) => {
   state.cart = data.cart
 }
 
-export const logout = (state) => {
+export const logout = state => {
   state.token = ''
   state.account = ''
   state.email = ''
@@ -51,6 +51,6 @@ export const appointment = (state, data) => {
   state.appointment.email = data.email
   state.appointment.petname = data.petname
   state.appointment.pettype = data.pettype
-  state.appointment.appointmentDate = data.appointmentDate
+  state.appointment.appointmentDate = data.date
   state.appointment.memo = data.memo
 }
