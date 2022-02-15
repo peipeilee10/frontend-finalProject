@@ -2,7 +2,7 @@
   <div id="appointmentCheckout">
     <v-stepper v-model="e1">
       <!-- 進度條 -->
-      <v-stepper-header>
+      <v-stepper-header style="width: 80%" class="mx-auto">
         <v-stepper-step :complete="e1 > 1" step="1" color="#00ACC1">
           預約資訊
         </v-stepper-step>
@@ -18,90 +18,147 @@
       <v-stepper-items>
         <!-- 預約資訊 -->
         <v-stepper-content step="1">
-          <h1 class="text-center mb-15 mt-10">請填寫預約資訊</h1>
+          <h1 class="text-center mb-15 mt-10 h1">請填寫預約資訊</h1>
           <v-form ref="form" lazy-validation>
-            <v-label for="name">預約人姓名</v-label>
-            <v-text-field
-              id="name"
-              v-model="form.name"
-              :rules="rules.nameRules"
-              placeholder="訂購人姓名"
-              required
-            ></v-text-field>
-
-            <v-label for="contact">預約人電話</v-label>
-            <v-text-field
-              id="contact"
-              v-model="form.phone"
-              :rules="rules.phoneRules"
-              placeholder="預約人聯絡電話"
-              required
-            ></v-text-field>
-
-            <!-- <v-label for="contact">預約日期</v-label>
-            <v-col cols="12">
-              <v-menu
-                v-model="fromDateMenu"
-                :close-on-content-click="false"
-                :nudge-right="40"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    label="請選擇日期"
-                    prepend-icon="mdi-calendar"
-                    readonly
-                    :value="fromDateDisp"
-                    v-on="on"
-                    required
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  locale="en-in"
-                  v-model="form.appointmentdate"
-                  @input="fromDateMenu = false"
-                ></v-date-picker>
-              </v-menu>
-            </v-col> -->
-
-            <v-label for="email">預約人信箱</v-label>
-            <v-text-field
-              id="email"
-              v-model="form.email"
-              :rules="rules.emailRules"
-              placeholder="訂購人信箱"
-              required
-            ></v-text-field>
-
-            <v-label for="petname">毛孩名字</v-label>
-            <v-text-field
-              id="petname"
-              v-model="form.petname"
-              placeholder="毛孩名字"
-            ></v-text-field>
-
-            <v-label for="petbreed">毛孩品種</v-label>
-            <v-text-field
-              id="petbreed"
-              v-model="form.petbreed"
-              placeholder="毛孩品種"
-            ></v-text-field>
-
-            <v-label for="memo">備註：</v-label>
-            <v-textarea outlined id="memo" v-model="form.memo"></v-textarea>
+            <v-row>
+              <v-col cols="6">
+                <v-label for="name">預約人姓名</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="name"
+                  v-model="form.name"
+                  :rules="rules.nameRules"
+                  placeholder="訂購人姓名"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="6">
+                <v-label for="contact">預約人電話</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="contact"
+                  v-model="form.phone"
+                  :rules="rules.phoneRules"
+                  placeholder="預約人聯絡電話"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-label for="email">預約人信箱</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="email"
+                  v-model="form.email"
+                  :rules="rules.emailRules"
+                  placeholder="訂購人信箱"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                <v-label for="petname">毛孩名字</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="petname"
+                  v-model="form.petname"
+                  placeholder="毛孩名字"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="6">
+                <v-label for="petbreed">毛孩品種</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="petbreed"
+                  v-model="form.petbreed"
+                  placeholder="毛孩品種"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-label for="memo">備註：</v-label>
+                <v-textarea solo id="memo" v-model="form.memo"></v-textarea>
+              </v-col>
+            </v-row>
           </v-form>
 
-          <v-btn class="checkout-btn" to="/appointment" text>重新預約</v-btn>
-          <v-btn class="checkout-btn ml-10" @click="e1 = 2" text>下一步</v-btn>
+          <!-- 按鈕 -->
+          <div class="text-center mt-10">
+            <v-btn class="checkout-btn" to="/appointment" text>重新預約</v-btn>
+            <v-btn class="checkout-btn ml-10" @click="e1 = 2" text>
+              下一步
+            </v-btn>
+          </div>
         </v-stepper-content>
 
         <!-- 確認預約 -->
         <v-stepper-content step="2" class="confirmAppointment">
-          <h1 class="text-center mb-15 mt-10">確認預約</h1>
-          <v-simple-table class="mb-15 text-center">
+          <h1 class="text-center mb-15 mt-10 h1">確認預約</h1>
+          <v-card class="mx-auto my-12 appointmentcard" max-width="500">
+            <!-- <v-card-title>
+              <v-row>
+                <v-col cols="6">項目</v-col>
+                <v-col cols="6">資訊</v-col>
+              </v-row>
+            </v-card-title> -->
+            <v-card-text>
+              <v-row>
+                <v-col cols="6">預約日期：</v-col>
+                <v-col cols="6">{{ form.appointmentdate }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">預約時段：</v-col>
+                <v-col cols="6">{{ form.appointmenttime }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">預約項目：</v-col>
+                <v-col cols="6">{{ form.serviceitem }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">毛小孩類型：</v-col>
+                <v-col cols="6">{{ form.pettype }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">預約人姓名：</v-col>
+                <v-col cols="6">{{ form.name }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">預約人電話：</v-col>
+                <v-col cols="6">{{ form.phone }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">預約人信箱：</v-col>
+                <v-col cols="6">{{ form.email }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">毛小孩姓名：</v-col>
+                <v-col cols="6">{{ form.petname }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">毛小孩品種：</v-col>
+                <v-col cols="6">{{ form.petbreed }}</v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="6">備註：</v-col>
+                <v-col cols="6">{{ form.memo }}</v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+          <div class="text-center">
+            <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
+            <v-btn class="checkout-btn ml-5" text @click="appointmentCheckOut">
+              送出預約
+            </v-btn>
+          </div>
+          <!-- <v-simple-table class="mb-15 text-center">
             <template v-slot:default>
               <thead>
                 <tr>
@@ -152,12 +209,7 @@
                 </tr>
               </tbody>
             </template>
-          </v-simple-table>
-
-          <v-btn class="checkout-btn" @click="e1 = 1" text>上一步</v-btn>
-          <v-btn class="checkout-btn ml-5" text @click="appointmentCheckOut">
-            送出預約
-          </v-btn>
+          </v-simple-table> -->
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -216,6 +268,7 @@
             title: '成功',
             text: '已成功完成預約!'
           })
+          this.$router.push('/back/member/appointment')
         } catch (error) {
           this.$swal({
             icon: 'error',

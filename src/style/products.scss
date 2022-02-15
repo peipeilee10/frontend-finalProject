@@ -5,7 +5,7 @@
     color: $brown;
   }
   .productPrice {
-    color: $cyancolor;
+    color: $pink;
   }
   .go-btn {
     background-color: $content-text;
@@ -14,24 +14,40 @@
 
 #products {
   padding: 200px 0;
+  .item {
+    color: $content-text;
+  }
 }
 
 #productself {
   padding: 200px 0;
-  .productimg {
+  .box {
     width: 400px;
-    border-radius: 10px;
+    height: 400px;
+    overflow: hidden;
+    .productimg {
+      width: 400px;
+      border-radius: 10px;
+      transition: 1s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
   .description {
     margin-bottom: 100px;
   }
-  .productName,
-  .productPrice {
+  .productName {
     color: $content-text;
     font-size: 2rem;
     font-weight: bolder;
   }
-  .addCart {
+  .productPrice {
+    color: $pink;
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  .btn {
     background-color: $yellow;
     color: white;
   }

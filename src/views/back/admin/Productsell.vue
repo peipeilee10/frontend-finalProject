@@ -1,18 +1,23 @@
 <template>
   <div id="productsell" class="mt-10">
     <div class="container">
-      <v-data-table :headers="headers" :items="products"
-      :disable-sort="abc">
+      <v-data-table :headers="headers" :items="products" :disable-sort="abc">
         <template v-slot:item.image="{ item }">
           <!-- {{ item }} -->
           <img v-if="item.image" :src="item.image" style="height: 100px" />
         </template>
-        <template v-slot:item.price="{ item }" style="width: 50%">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(item.price) }}</template>
+        <template v-slot:item.price="{ item }" style="width: 50%">
+          $&nbsp;{{ new Intl.NumberFormat('en-IN').format(item.price) }}
+        </template>
         <template v-slot:item.sell="{ item }">
           {{ item.sell ? 'v' : '' }}
         </template>
         <template v-slot:item.action="{ item }">
-          <v-btn color="warning white--text" class="mr-5" @click="editProduct(item._id)">
+          <v-btn
+            color="warning white--text"
+            class="mr-5"
+            @click="editProduct(item._id)"
+          >
             <v-icon>mdi-lead-pencil</v-icon>
           </v-btn>
           <v-btn color="red white--text" @click="deleteProduct(item._id)">
@@ -25,7 +30,9 @@
       <v-row justify="end" class="mt-10">
         <v-dialog v-model="dialog" max-width="800px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="cyan darken-1" dark v-bind="attrs" v-on="on">新增</v-btn>
+            <v-btn color="cyan darken-1" dark v-bind="attrs" v-on="on">
+              新增
+            </v-btn>
           </template>
 
           <v-card>
@@ -38,15 +45,40 @@
               <v-container>
                 <v-row>
                   <v-col cols="12">
-                    <v-text-field v-model="form.name" label="商品名稱" required :rules="rules.nameRules"></v-text-field>
+                    <v-text-field
+                      v-model="form.name"
+                      label="商品名稱"
+                      required
+                      :rules="rules.nameRules"
+                    ></v-text-field>
                   </v-col>
 
                   <v-col cols="12">
-                    <v-text-field v-model="form.price" type="number" label="商品價格" required :rules="rules.priceRules"></v-text-field>
+                    <v-text-field
+                      v-model="form.price"
+                      type="number"
+                      label="商品價格"
+                      required
+                      :rules="rules.priceRules"
+                    ></v-text-field>
                   </v-col>
 
                   <v-col cols="12">
-                    <v-textarea v-model="form.description" filled name="input-7-4" label="商品說明" :rules="rules.descriptionRules"></v-textarea>
+                    <v-textarea
+                      v-model="form.description"
+                      filled
+                      name="input-7-4"
+                      label="商品說明"
+                      :rules="rules.descriptionRules"
+                    ></v-textarea>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-label>商品分類</v-label>
+                    <v-select
+                      :items="categories"
+                      label="分類"
+                      v-model="form.category"
+                    ></v-select>
                   </v-col>
 
                   <v-col cols="12">
@@ -72,8 +104,22 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text type="cancel" @click="dialog = false">關閉</v-btn>
-              <v-btn color="blue darken-1" text @click="submitModal" :disabled="isSaving">保存</v-btn>
+              <v-btn
+                color="blue darken-1"
+                text
+                type="cancel"
+                @click="dialog = false"
+              >
+                關閉
+              </v-btn>
+              <v-btn
+                color="blue darken-1"
+                text
+                @click="submitModal"
+                :disabled="isSaving"
+              >
+                保存
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -94,6 +140,13 @@
           { text: '上架', value: 'sell' },
           { text: '操作', value: 'action' }
         ],
+        categories: [
+          { text: '請選擇分類', value: '' },
+          '毛孩飼料',
+          '沐浴用品',
+          '毛孩玩具',
+          '其他用品'
+        ],
         products: [],
         form: {
           name: '',
@@ -102,7 +155,8 @@
           image: null,
           sell: false,
           _id: '',
-          index: -1
+          index: -1,
+          category: ''
         },
         modalSubmitting: false,
         dialog: false,
@@ -113,9 +167,18 @@
     computed: {
       rules() {
         return {
-          nameRules: [v => !!v || '商品名為必填欄位', v => (v && v.length > 0) || '商品名為必填欄位'],
-          priceRules: [v => !!v || '價格為必填欄位', v => (v && v >= 0) || '價格不得低於零元'],
-          descriptionRules: [v => !!v || '商品介紹為必填欄位', v => (v && v.length > 0) || '商品介紹為必填欄位']
+          nameRules: [
+            v => !!v || '商品名為必填欄位',
+            v => (v && v.length > 0) || '商品名為必填欄位'
+          ],
+          priceRules: [
+            v => !!v || '價格為必填欄位',
+            v => (v && v >= 0) || '價格不得低於零元'
+          ],
+          descriptionRules: [
+            v => !!v || '商品介紹為必填欄位',
+            v => (v && v.length > 0) || '商品介紹為必填欄位'
+          ]
         }
       }
     },
@@ -123,7 +186,11 @@
       async submitModal(event) {
         this.isSaving = true
         event.preventDefault()
-        if (!this.rules.nameRules || !this.rules.priceRules || !this.rules.descriptionRules) {
+        if (
+          !this.rules.nameRules ||
+          !this.rules.priceRules ||
+          !this.rules.descriptionRules
+        ) {
           this.$swal({
             icon: 'error',
             title: '錯誤',
@@ -152,14 +219,23 @@
             })
             // this.products.push(data.result)
             // console.log(this.products)
+            this.$swal({
+              icon: 'success',
+              title: '成功',
+              text: '新增商品成功'
+            })
           } else {
             // 修改商品內容
             console.log('修改商品內容')
-            const { data } = await this.api.patch('/products/' + this.form._id, fd, {
-              headers: {
-                authorization: 'Bearer ' + this.user.token
+            const { data } = await this.api.patch(
+              '/products/' + this.form._id,
+              fd,
+              {
+                headers: {
+                  authorization: 'Bearer ' + this.user.token
+                }
               }
-            })
+            )
             this.products[this.form.index] = {
               ...this.form,
               image: data.result.image
@@ -179,9 +255,7 @@
         }
       },
       editProduct(id) {
-        const index = this.products.findIndex(product =>
-          product._id === id
-        )
+        const index = this.products.findIndex(product => product._id === id)
         this.form = {
           // ...this.products[index], index
           name: this.products[index].name,

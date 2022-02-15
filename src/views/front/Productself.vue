@@ -2,7 +2,9 @@
   <div id="productself" class="container">
     <v-row no-gutters>
       <v-col cols="4">
-        <img :src="image" class="productimg" />
+        <div class="box">
+          <img :src="image" class="productimg" />
+        </div>
       </v-col>
       <v-col cols="8" class="px-15">
         <v-row class="flex-column">
@@ -18,18 +20,36 @@
             {{ description }}
           </v-col>
           <v-row>
-            <v-col>
-              <v-text-field
-                outlined
-                type="number"
-                label="數量"
-                style="width: 500px"
-                :rules="rules.quantityRules"
-                v-model.number="quantity"
-              ></v-text-field>
+            <v-col class="d-flex">
+              <v-btn @click="minus" color="orange darken-1" class="white--text">
+                <v-icon>mdi-minus</v-icon>
+              </v-btn>
+
+              <h3 class="mx-10">
+                {{ quantity }}
+              </h3>
+
+              <v-btn @click="plus" color="orange darken-1" class="white--text">
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
             </v-col>
-            <v-col class="text-right">
-              <v-btn class="addCart" @click="addCart">加入購物車</v-btn>
+            <v-col class="text-right d-flex flex-column align-end">
+              <v-btn
+                color="orange darken-1"
+                class="white--text"
+                style="width: 100px"
+                @click="addCart"
+              >
+                加入購物車
+              </v-btn>
+              <v-btn
+                color="cyan darken-1"
+                class="white--text mt-5"
+                style="width: 100px"
+                to="/products"
+              >
+                繼續購物
+              </v-btn>
             </v-col>
           </v-row>
         </v-row>
@@ -66,6 +86,12 @@
           quantity: this.quantity
         })
         console.log({ product: this.$route.params.id, quantity: this.quantity })
+      },
+      minus() {
+        this.quantity--
+      },
+      plus() {
+        this.quantity++
       }
     },
     async created() {

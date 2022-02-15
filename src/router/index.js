@@ -14,7 +14,8 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Home.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Home.vue'),
         meta: {
           title: '關於我們 | Happy Shower'
         }
@@ -22,7 +23,8 @@ const routes = [
       {
         path: 'service',
         name: 'Service',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Service.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Service.vue'),
         meta: {
           title: '服務項目 | Happy Shower'
         }
@@ -30,7 +32,10 @@ const routes = [
       {
         path: 'appointment',
         name: 'Appointment',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Appointment.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "Front" */ '../views/front/Appointment.vue'
+          ),
         meta: {
           title: '線上預約 | Happy Shower'
         }
@@ -38,7 +43,10 @@ const routes = [
       {
         path: 'appointmentCheckout',
         name: 'AppointmentCheckout',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/AppointmentCheckout.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "Front" */ '../views/front/AppointmentCheckout.vue'
+          ),
         meta: {
           title: '線上預約結帳 | Happy Shower'
         }
@@ -46,7 +54,8 @@ const routes = [
       {
         path: 'products',
         name: 'Products',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Products.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Products.vue'),
         meta: {
           title: '線上購物 | Happy Shower'
         }
@@ -54,7 +63,10 @@ const routes = [
       {
         path: 'product/:id',
         name: 'Productself',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Productself.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "Front" */ '../views/front/Productself.vue'
+          ),
         meta: {
           title: '商品介紹 | Happy Shower'
         }
@@ -62,7 +74,8 @@ const routes = [
       {
         path: 'cart',
         name: 'Cart',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Cart.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Cart.vue'),
         meta: {
           title: '購物車 | Happy Shower'
         }
@@ -70,7 +83,8 @@ const routes = [
       {
         path: 'photo',
         name: 'Photo',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Photo.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Photo.vue'),
         meta: {
           title: '寵物寫真 | Happy Shower'
         }
@@ -78,7 +92,8 @@ const routes = [
       {
         path: 'contact',
         name: 'Contact',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Contact.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Contact.vue'),
         meta: {
           title: '聯絡我們 | Happy Shower'
         }
@@ -86,7 +101,8 @@ const routes = [
       {
         path: 'login',
         name: 'Login',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Login.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Login.vue'),
         meta: {
           title: '登入 | Happy Shower'
         }
@@ -94,7 +110,8 @@ const routes = [
       {
         path: 'register',
         name: 'Register',
-        component: () => import(/* webpackChunkName: "Front" */ '../views/front/Register.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Front" */ '../views/front/Register.vue'),
         meta: {
           title: '註冊 | Happy Shower'
         }
@@ -104,12 +121,16 @@ const routes = [
   {
     path: '/back',
     name: 'Back',
-    component: () => import(/* webpackChunkName: "Back" */ '../views/back/Back.vue'),
+    component: () =>
+      import(/* webpackChunkName: "Back" */ '../views/back/Back.vue'),
     children: [
       {
         path: 'member',
         name: 'Member',
-        component: () => import(/* webpackChunkName: "Member" */ '../views/back/member/Member.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "Member" */ '../views/back/member/Member.vue'
+          ),
         meta: {
           login: true,
           title: '會員專區'
@@ -118,7 +139,10 @@ const routes = [
           {
             path: '',
             name: 'MemberSettings',
-            component: () => import(/* webpackChunkName: "Member" */ '../views/back/member/MemberSettings.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "Member" */ '../views/back/member/MemberSettings.vue'
+              ),
             meta: {
               login: true,
               title: '會員資料專區'
@@ -127,7 +151,10 @@ const routes = [
           {
             path: 'appointment',
             name: 'MemberAppointment',
-            component: () => import(/* webpackChunkName: "Member" */ '../views/back/member/MemberAppointment.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "Member" */ '../views/back/member/MemberAppointment.vue'
+              ),
             meta: {
               login: true,
               title: '會員美容預約管理'
@@ -136,7 +163,10 @@ const routes = [
           {
             path: 'orders',
             name: 'MemberOrders',
-            component: () => import(/* webpackChunkName: "Member" */ '../views/back/member/MemberOrders.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "Member" */ '../views/back/member/MemberOrders.vue'
+              ),
             meta: {
               login: true,
               title: '會員商品訂單管理'
@@ -147,7 +177,10 @@ const routes = [
       {
         path: 'admin',
         name: 'Admin',
-        component: () => import(/* webpackChunkName: "Admin" */ '../views/back/admin/Admin.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "Admin" */ '../views/back/admin/Admin.vue'
+          ),
         meta: {
           login: true,
           admin: true,
@@ -157,7 +190,10 @@ const routes = [
           {
             path: '/',
             name: 'AdminAppointment',
-            component: () => import(/* webpackChunkName: "admin" */ '../views/back/admin/AdminAppointment.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "admin" */ '../views/back/admin/AdminAppointment.vue'
+              ),
             meta: {
               login: true,
               admin: true,
@@ -167,7 +203,10 @@ const routes = [
           {
             path: 'orders',
             name: 'AdminOrders',
-            component: () => import(/* webpackChunkName: "admin" */ '../views/back/admin/AdminOrders.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "admin" */ '../views/back/admin/AdminOrders.vue'
+              ),
             meta: {
               login: true,
               admin: true,
@@ -177,7 +216,10 @@ const routes = [
           {
             path: 'productsell',
             name: 'Productsell',
-            component: () => import(/* webpackChunkName: "admin" */ '../views/back/admin/Productsell.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "admin" */ '../views/back/admin/Productsell.vue'
+              ),
             meta: {
               login: true,
               admin: true,
@@ -187,7 +229,10 @@ const routes = [
           {
             path: 'carouselchange',
             name: 'CarouselChange',
-            component: () => import(/* webpackChunkName: "admin" */ '../views/back/admin/CarouselChange.vue'),
+            component: () =>
+              import(
+                /* webpackChunkName: "admin" */ '../views/back/admin/CarouselChange.vue'
+              ),
             meta: {
               login: true,
               admin: true,
@@ -216,7 +261,7 @@ router.beforeEach((to, from, next) => {
   // 如果要去的那頁需要登入，並且使用者沒有登錄
   if (to.meta.login && !user.isLogin) {
     next('/login')
-  // 如果要去的那頁需要管理員身分，並且使用者沒有權限
+    // 如果要去的那頁需要管理員身分，並且使用者沒有權限
   } else if (to.meta.admin && !user.isAdmin) {
     // 回首頁
     next('/')
@@ -227,6 +272,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
   document.title = to.meta.title
+  window.scrollTo({ top: 0 })
 })
 
 export default router

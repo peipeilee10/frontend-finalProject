@@ -50,7 +50,7 @@
                       </div>
                     </v-col>
 
-                    <!-- 毛孩類型 -->
+                    <!-- 預約日期 -->
                     <v-col cols="6">
                       <div class="date">
                         <span class="itemTitle">預約日期</span>
@@ -85,7 +85,7 @@
                     </v-col>
                   </v-row>
                   <v-row>
-                    <!-- 服務項目 -->
+                    <!-- 毛孩類型 -->
                     <v-col cols="6">
                       <div class="pet-type">
                         <span class="itemTitle">毛孩類型</span>
@@ -138,7 +138,7 @@
                       </div>
                     </v-col>
 
-                    <!-- 價錢&服務細項 -->
+                    <!-- 預約時段 -->
                     <v-col cols="6">
                       <div class="booking-time">
                         <span class="itemTitle">預約時段</span>
@@ -159,6 +159,7 @@
                     </v-col>
                   </v-row>
                   <v-row>
+                    <!-- 服務項目 -->
                     <v-col cols="6">
                       <div class="serviceitem">
                         <span class="itemTitle">服務項目</span>
@@ -271,7 +272,7 @@
                   </v-row>
 
                   <v-row>
-                    <!-- 預約日期 -->
+                    <!-- 按鈕 -->
                     <v-col cols="12">
                       <div class="text-center my-10">
                         <v-btn
@@ -284,95 +285,9 @@
                         </v-btn>
                       </div>
                     </v-col>
-                    <!-- 預約時段 -->
-                    <!-- <v-col cols="6"></v-col> -->
                   </v-row>
                 </v-col>
               </v-row>
-
-              <!-- 價錢 -->
-              <!-- <span class="price">
-                <span
-                  v-if="
-                    appointment.serviceitem === '小美容' &&
-                    appointment.pettype === '小型犬'
-                  "
-                >
-                  $ 800 / 1hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '小美容' &&
-                    appointment.pettype === '中型犬'
-                  "
-                >
-                  $ 1,200 / 1hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '小美容' &&
-                    appointment.pettype === '大型犬'
-                  "
-                >
-                  $ 1,600 / 1hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '大美容' &&
-                    appointment.pettype === '小型犬'
-                  "
-                >
-                  $ 1,500 / 2hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '大美容' &&
-                    appointment.pettype === '中型犬'
-                  "
-                >
-                  $ 2,400 / 2hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '大美容' &&
-                    appointment.pettype === '大型犬'
-                  "
-                >
-                  $ 3,200 / 2.5hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '小美容' &&
-                    appointment.pettype === '短毛貓'
-                  "
-                >
-                  $ 1,300 / 1hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '小美容' &&
-                    appointment.pettype === '長毛貓'
-                  "
-                >
-                  $ 1,600 / 1.5hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '大美容' &&
-                    appointment.pettype === '短毛貓'
-                  "
-                >
-                  $ 2,500 / 2hr
-                </span>
-                <span
-                  v-if="
-                    appointment.serviceitem === '大美容' &&
-                    appointment.pettype === '長毛貓'
-                  "
-                >
-                  $ 2,800 / 2hr
-                </span>
-              </span> -->
             </v-card>
           </v-col>
           <v-col cols="2"></v-col>

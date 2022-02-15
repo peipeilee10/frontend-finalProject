@@ -70,9 +70,6 @@
             <!-- 細項 -->
             <v-card color="grey lighten-4" min-width="350px" flat>
               <v-toolbar :color="selectedEvent.color" dark>
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
                 <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
@@ -85,10 +82,12 @@
                 <p>毛孩姓名：{{ selectedEvent.appointment.petname }}</p>
                 <p>毛孩品種：{{ selectedEvent.appointment.petbreed }}</p>
                 <p>服務項目：{{ selectedEvent.appointment.serviceitem }}</p>
+                <p>備註：{{ selectedEvent.appointment.memo }}</p>
               </v-card-text>
               <v-card-actions>
-                <v-btn text color="secondary" @click="selectedOpen = false">
-                  Cancel
+                <v-btn text @click="selectedOpen = false">close</v-btn>
+                <v-btn text @click="cancleappointment(selectedEvent._id)">
+                  取消預約
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -175,40 +174,67 @@
       },
       rnd(a, b) {
         return Math.floor((b - a + 1) * Math.random()) + a
+      },
+      async cancleappointment(id) {
+        console.log(id)
+        try {
+          await this.api.delete('/appointments/deleteappointment/' + id, {
+            headers: {
+              authorization: 'Bearer ' + this.user.token
+            }
+          })
+          // 重新呼叫最新的預約
+          this.getappointment()
+          this.$swal({
+            icon: 'success',
+            title: '成功',
+            text: '刪除預約成功'
+          })
+        } catch (error) {
+          this.$swal({
+            icon: 'error',
+            title: '錯誤',
+            text: '刪除預約失敗'
+          })
+        }
+      },
+      async getappointment() {
+        try {
+          const { data } = await this.api.get('/appointments/myappointment', {
+            headers: {
+              authorization: 'Bearer ' + this.user.token
+            }
+          })
+          this.eventsAll = data.result.map(appointment => {
+            appointment.start = new Date(
+              appointment.appointment.appointmentdate +
+                ' ' +
+                appointment.appointment.appointmenttime
+            )
+            appointment.name =
+              appointment.appointment.name +
+              appointment.appointment.appointmenttime
+            appointment.end = new Date(
+              appointment.appointment.appointmentdate +
+                ' ' +
+                appointment.appointment.appointmenttime
+            )
+            appointment.color = this.colors[this.rnd(0, this.colors.length - 1)]
+            appointment.timed = true
+            return appointment
+          })
+          this.events = this.eventsAll
+        } catch (error) {
+          this.$swal({
+            icon: 'error',
+            title: '失敗',
+            text: '取得預約訂單失敗'
+          })
+        }
       }
     },
     async created() {
-      try {
-        const { data } = await this.api.get('/appointments/myappointment', {
-          headers: {
-            authorization: 'Bearer ' + this.user.token
-          }
-        })
-        this.eventsAll = data.result.map(appointment => {
-          appointment.start = new Date(
-            appointment.appointment.appointmentdate +
-              ' ' +
-              appointment.appointment.appointmenttime
-          )
-          appointment.name =
-            appointment.appointment.name +
-            appointment.appointment.appointmenttime
-          appointment.end = new Date(
-            appointment.appointment.appointmentdate +
-              ' ' +
-              appointment.appointment.appointmenttime
-          )
-          appointment.color = this.colors[this.rnd(0, this.colors.length - 1)]
-          return appointment
-        })
-        this.events = this.eventsAll
-      } catch (error) {
-        this.$swal({
-          icon: 'error',
-          title: '失敗',
-          text: '取得預約訂單失敗'
-        })
-      }
+      this.getappointment()
     }
   }
 </script>

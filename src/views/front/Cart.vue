@@ -2,7 +2,7 @@
   <div id="cart" class="container">
     <v-stepper v-model="e1">
       <!-- 進度條 -->
-      <v-stepper-header>
+      <v-stepper-header style="width: 80%" class="mx-auto">
         <v-stepper-step :complete="e1 > 1" step="1" color="#00ACC1">
           購物車
         </v-stepper-step>
@@ -44,9 +44,8 @@
               <!-- {{index}} -->
               <div class="d-flex align-center">
                 <v-text-field
-                  outlined
-                  type="number"
                   label="數量"
+                  type="number"
                   style="width: 10px"
                   v-model="item.quantity"
                   @input="updateCart(index, item.quantity)"
@@ -69,61 +68,93 @@
 
         <!-- 填寫購買資訊 -->
         <v-stepper-content step="2">
-          <h1 class="text-center mb-15 mt-10">請填寫訂購資訊</h1>
+          <h1 class="text-center mb-15 mt-10 h1">請填寫訂購資訊</h1>
           <v-form ref="form" lazy-validation @submit.prevent="submitorders">
-            <v-label for="name">訂購人姓名</v-label>
-            <v-text-field
-              id="name"
-              v-model="form.name"
-              :rules="rules.nameRules"
-              placeholder="訂購人姓名"
-              required
-            ></v-text-field>
+            <v-row>
+              <v-col cols="6">
+                <v-label for="name">訂購人姓名</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="name"
+                  v-model="form.name"
+                  :rules="rules.nameRules"
+                  placeholder="訂購人姓名"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col>
+                <v-label for="contact">連絡電話</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="contact"
+                  v-model="form.phone"
+                  :rules="rules.phoneRules"
+                  placeholder="訂購人聯絡電話"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-            <v-label for="email">信箱</v-label>
-            <v-text-field
-              id="email"
-              v-model="form.email"
-              :rules="rules.emailRules"
-              placeholder="訂購人信箱"
-              required
-            ></v-text-field>
+            <v-row>
+              <v-col cols="6">
+                <v-label for="email">信箱</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="email"
+                  v-model="form.email"
+                  :rules="rules.emailRules"
+                  placeholder="訂購人信箱"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="6">
+                <v-label for="address">地址(非宅配無須填寫)</v-label>
+                <v-text-field
+                  solo
+                  clearable
+                  id="address"
+                  v-model="form.address"
+                  placeholder="訂購人地址(若選擇宅配，必須填寫)"
+                ></v-text-field>
+              </v-col>
+            </v-row>
 
-            <v-label for="address">地址(非宅配無須填寫)</v-label>
-            <v-text-field
-              id="address"
-              v-model="form.address"
-              placeholder="訂購人地址(若選擇宅配，必須填寫)"
-            ></v-text-field>
-
-            <v-label for="contact">連絡電話</v-label>
-            <v-text-field
-              id="contact"
-              v-model="form.phone"
-              :rules="rules.phoneRules"
-              placeholder="訂購人聯絡電話"
-              required
-            ></v-text-field>
-
-            <div class="d-flex">
-              <v-radio-group v-model="form.pickupway" row class="mr-15">
-                <v-label>取貨方式</v-label>
-                <v-radio label="宅配" value="宅配"></v-radio>
-                <v-radio label="自取" value="自取"></v-radio>
-              </v-radio-group>
-              <v-radio-group v-model="form.pay" row>
-                <v-label>結帳方式</v-label>
-                <v-radio label="貨到付款" value="貨到付款"></v-radio>
-                <v-radio label="ATM轉帳" value="ATM轉帳"></v-radio>
-              </v-radio-group>
-            </div>
-            <v-label for="memo">備註：</v-label>
-            <v-textarea outlined id="memo" v-model="form.memo"></v-textarea>
+            <v-row>
+              <v-col cols="6">
+                <v-radio-group v-model="form.pickupway" row class="mr-15">
+                  <v-label>取貨方式</v-label>
+                  <v-radio label="宅配" value="宅配"></v-radio>
+                  <v-radio label="自取" value="自取"></v-radio>
+                </v-radio-group>
+              </v-col>
+              <v-col cols="6">
+                <v-radio-group v-model="form.pay" row>
+                  <v-label>結帳方式</v-label>
+                  <v-radio label="貨到付款" value="貨到付款"></v-radio>
+                  <v-radio label="ATM轉帳" value="ATM轉帳"></v-radio>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-label for="memo">備註：</v-label>
+                <v-textarea
+                  solo
+                  clearable
+                  outlined
+                  id="memo"
+                  v-model="form.memo"
+                ></v-textarea>
+              </v-col>
+            </v-row>
           </v-form>
 
           <v-btn class="cart-btn" @click="e1 = 1" text>上一步</v-btn>
 
-          <v-btn class="cart-btn ml-10" @click="e1 = 3" type="submit" text>
+          <v-btn class="cart-btn ml-10" @click="nextstep()" type="submit" text>
             下一步
           </v-btn>
         </v-stepper-content>
@@ -226,6 +257,9 @@
       }
     },
     methods: {
+      nextstep() {
+        this.el = 3
+      },
       async updateCart(index, quantity) {
         try {
           // 更新購物車
