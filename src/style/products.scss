@@ -1,24 +1,40 @@
+// 商品卡片(components)
 #productsCard {
   height: 450px;
   margin: 15px 0;
+  padding: 0 15px;
   .productName {
     color: $brown;
+    height: 100px;
+    width: 100%;
   }
   .productPrice {
     color: $pink;
   }
   .go-btn {
     background-color: $content-text;
+    width: 150px;
+    letter-spacing: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .productimg {
+    height: 50%;
+    object-fit: cover;
   }
 }
 
+// 商品列表
 #products {
   padding: 200px 0;
   .item {
     color: $content-text;
   }
+  // .productcol {
+  //   height: 400px;
+  // }
 }
 
+// 商品內頁介紹
 #productself {
   padding: 200px 0;
   .box {
@@ -53,6 +69,7 @@
   }
 }
 
+// 購物車
 #cart {
   padding: 200px 0;
   .v-stepper__header {

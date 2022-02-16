@@ -1,6 +1,7 @@
 <template>
   <div id="photos" class="container">
     <h1>
+      https://data.gov.tw/dataset/85903
       毛孩寫真
       <v-icon color="#1D5452" large>mdi-paw</v-icon>
     </h1>
@@ -9,20 +10,22 @@
         cols="3"
         v-for="(photo, index) in photos"
         :key="index"
+        :data-index="index"
         style="height: 300px"
       >
-        <img :src="photo.url" />
+        <img @click="open($event)" :src="photo.url" />
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+  import fancyBox from 'vue-fancybox'
   export default {
     data() {
       return {
         photos: [
-          { url: './img/photos/photos-1.jpg' },
+          { width: 200, height: 200, url: './img/photos/photos-1.jpg' },
           { url: './img/photos/photos (2).jpg' },
           { url: './img/photos/photos (3).jpg' },
           { url: './img/photos/photos (4).jpg' },
@@ -36,6 +39,14 @@
           { url: './img/photos/photos (12).jpg' }
         ]
       }
+    },
+    methods: {
+      open(e) {
+        fancyBox(e.target, this.photos)
+        console.log(this.photos)
+        console.log(e)
+      }
     }
+
   }
 </script>

@@ -33,20 +33,33 @@
                     <!-- 毛孩類別 -->
                     <v-col cols="6">
                       <div class="pet">
-                        <span class="itemTitle">毛孩類別</span>
-                        <v-chip-group
-                          v-model="pet"
-                          active-class="orange darken-1 white--text "
+                        <div class="itemTitle">毛孩類別</div>
+                        <v-btn
+                          plain
+                          text
+                          outlined
+                          @click="petSelected('貓貓')"
+                          class="mr-2"
+                          :class="{
+                            select: pet === '貓貓'
+                          }"
                         >
-                          <v-chip label large :ripple="false" value="貓貓">
-                            貓貓 &nbsp;&nbsp;
-                            <v-icon>mdi-cat</v-icon>
-                          </v-chip>
-                          <v-chip label large :ripple="false" value="狗狗">
-                            狗狗&nbsp;&nbsp;
-                            <v-icon>mdi-dog</v-icon>
-                          </v-chip>
-                        </v-chip-group>
+                          貓貓&nbsp;&nbsp;
+                          <v-icon>mdi-cat</v-icon>
+                        </v-btn>
+                        <v-btn
+                          plain
+                          text
+                          outlined
+                          @click="petSelected('狗狗')"
+                          class="mr-2"
+                          :class="{
+                            select: pet === '狗狗'
+                          }"
+                        >
+                          狗狗&nbsp;&nbsp;
+                          <v-icon>mdi-dog</v-icon>
+                        </v-btn>
                       </div>
                     </v-col>
 
@@ -88,73 +101,92 @@
                     <!-- 毛孩類型 -->
                     <v-col cols="6">
                       <div class="pet-type">
-                        <span class="itemTitle">毛孩類型</span>
-                        <v-chip-group
-                          v-model="appointment.pettype"
-                          active-class="orange darken-1 white--text"
+                        <div class="itemTitle">毛孩類型</div>
+                        <v-btn
+                          v-if="pet === '狗狗'"
+                          plain
+                          text
+                          outlined
+                          @click="pettypeSelected('小型犬')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.pettype === '小型犬'
+                          }"
                         >
-                          <v-chip
-                            large
-                            v-if="pet === '狗狗'"
-                            label
-                            value="小型犬"
-                          >
-                            小型犬
-                          </v-chip>
+                          小型犬
+                        </v-btn>
 
-                          <v-chip
-                            large
-                            v-if="pet === '狗狗'"
-                            label
-                            value="中型犬"
-                          >
-                            中型犬
-                          </v-chip>
-                          <v-chip
-                            large
-                            v-if="pet === '狗狗'"
-                            label
-                            value="大型犬"
-                          >
-                            大型犬
-                          </v-chip>
-                          <v-chip
-                            large
-                            v-if="pet === '貓貓'"
-                            label
-                            value="長毛貓"
-                          >
-                            長毛貓
-                          </v-chip>
-                          <v-chip
-                            large
-                            v-if="pet === '貓貓'"
-                            label
-                            value="短毛貓"
-                          >
-                            短毛貓
-                          </v-chip>
-                        </v-chip-group>
+                        <v-btn
+                          v-if="pet === '狗狗'"
+                          plain
+                          text
+                          outlined
+                          @click="pettypeSelected('中型犬')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.pettype === '中型犬'
+                          }"
+                        >
+                          中型犬
+                        </v-btn>
+                        <v-btn
+                          v-if="pet === '狗狗'"
+                          plain
+                          text
+                          outlined
+                          @click="pettypeSelected('大型犬')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.pettype === '大型犬'
+                          }"
+                        >
+                          大型犬
+                        </v-btn>
+                        <v-btn
+                          v-if="pet === '貓貓'"
+                          plain
+                          text
+                          outlined
+                          @click="pettypeSelected('長毛貓')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.pettype === '長毛貓'
+                          }"
+                        >
+                          長毛貓
+                        </v-btn>
+                        <v-btn
+                          v-if="pet === '貓貓'"
+                          plain
+                          text
+                          outlined
+                          @click="pettypeSelected('短毛貓')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.pettype === '短毛貓'
+                          }"
+                        >
+                          短毛貓
+                        </v-btn>
                       </div>
                     </v-col>
 
                     <!-- 預約時段 -->
                     <v-col cols="6">
                       <div class="booking-time">
-                        <span class="itemTitle">預約時段</span>
-                        <v-chip-group
-                          v-model="appointment.time"
-                          active-class="orange darken-1 white--text"
+                        <div class="itemTitle">預約時段</div>
+                        <v-btn
+                          plain
+                          text
+                          outlined
+                          v-for="time in TimeRanges"
+                          :key="time.index"
+                          @click="timeSelected(time)"
+                          :class="{ select: time === selected }"
+                          class="mb-5 mr-1"
                         >
-                          <v-chip value="11:30">11:30</v-chip>
-                          <v-chip value="12:30">12:30</v-chip>
-                          <v-chip value="13:30">13:30</v-chip>
-                          <v-chip value="14:30">14:30</v-chip>
-                          <v-chip value="15:30">15:30</v-chip>
-                          <v-chip value="16:30">16:30</v-chip>
-                          <v-chip value="17:30">17:30</v-chip>
-                          <v-chip value="18:30">18:30</v-chip>
-                        </v-chip-group>
+                          {{ time }}
+                        </v-btn>
                       </div>
                     </v-col>
                   </v-row>
@@ -162,18 +194,31 @@
                     <!-- 服務項目 -->
                     <v-col cols="6">
                       <div class="serviceitem">
-                        <span class="itemTitle">服務項目</span>
-                        <v-chip-group
-                          v-model="appointment.serviceitem"
-                          active-class="orange darken-1 white--text "
+                        <div class="itemTitle">服務項目</div>
+                        <v-btn
+                          plain
+                          text
+                          outlined
+                          @click="serviceSelected('小美容')"
+                          class="mr-2"
+                          :class="{
+                            select: appointment.serviceitem === '小美容'
+                          }"
                         >
-                          <v-chip label large :ripple="false" value="小美容">
-                            小美容
-                          </v-chip>
-                          <v-chip label large :ripple="false" value="大美容">
-                            大美容
-                          </v-chip>
-                        </v-chip-group>
+                          小美容
+                        </v-btn>
+
+                        <v-btn
+                          plain
+                          text
+                          outlined
+                          @click="serviceSelected('大美容')"
+                          :class="{
+                            select: appointment.serviceitem === '大美容'
+                          }"
+                        >
+                          大美容
+                        </v-btn>
                       </div>
                     </v-col>
                     <v-col cols="6">
@@ -304,6 +349,17 @@
         fromDateMenu: false,
         tab: null,
         pet: '貓貓',
+        TimeRanges: [
+          '11:30',
+          '12:30',
+          '13:30',
+          '14:30',
+          '15:30',
+          '16:30',
+          '17:30',
+          '18:30'
+        ],
+        selected: false,
         appointment: {
           serviceitem: '小美容',
           pettype: '短毛貓',
@@ -326,6 +382,20 @@
           console.log(this.appointment)
           this.$router.push('/appointmentCheckout')
         }
+      },
+      timeSelected(time) {
+        this.selected = time
+        this.appointment.time = time
+      },
+      serviceSelected(item) {
+        // this.selected = item
+        this.appointment.serviceitem = item
+      },
+      pettypeSelected(pettype) {
+        this.appointment.pettype = pettype
+      },
+      petSelected(pet) {
+        this.pet = pet
       }
     }
   }

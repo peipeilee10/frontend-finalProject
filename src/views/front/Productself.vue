@@ -10,13 +10,15 @@
         <v-row class="flex-column">
           <v-col>
             <v-row>
-              <v-col class="productName">{{ name }}</v-col>
-              <v-col class="productPrice text-right">
+              <v-col cols="9" class="productName">
+                {{ name }}
+              </v-col>
+              <v-col cols="3" class="productPrice text-right">
                 $&nbsp;{{ new Intl.NumberFormat('en-IN').format(price) }}
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="description">
+          <v-col class="description" style="white-space: pre">
             {{ description }}
           </v-col>
           <v-row>

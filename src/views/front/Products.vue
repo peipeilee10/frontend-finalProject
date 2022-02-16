@@ -1,6 +1,7 @@
 <template>
   <div id="products">
-    <v-row>
+    <v-row no-gutters>
+      <!-- 分類 -->
       <v-col cols="3" class="mb-10 text-center d-flex flex-column align-center">
         <v-tab class="mb-5 item" @click="filter = ''">
           <v-icon class="mr-5 item">mdi-paw</v-icon>
@@ -23,9 +24,17 @@
           其他用品
         </v-tab>
       </v-col>
+
+      <!-- 商品 -->
       <v-col cols="7">
         <v-row>
-          <v-col cols="3" v-for="product in filterItems" :key="product._id">
+          <v-col
+            cols="6"
+            md="3"
+            v-for="product in filterItems"
+            :key="product._id"
+            class="productcol"
+          >
             <productCard :product="product"></productCard>
           </v-col>
         </v-row>

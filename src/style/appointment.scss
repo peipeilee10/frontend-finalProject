@@ -11,6 +11,7 @@
   .itemTitle {
     color: $content-text;
     font-weight: 500;
+    margin-bottom: 10px;
   }
 }
 
@@ -21,11 +22,15 @@
     color: $pink;
   }
 }
-
+.select {
+  border: 1px solid $orange !important;
+  color: $orange !important;
+}
 #appointmentCheckout {
   margin: auto;
   padding: 200px 0;
   width: 50%;
+
   .checkout-btn {
     background-color: $yellow;
     border-radius: 15px;

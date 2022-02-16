@@ -45,12 +45,12 @@
               <v-container>
                 <v-row>
                   <v-col cols="12">
-                    <v-text-field
+                    <v-textarea
                       v-model="form.name"
                       label="商品名稱"
                       required
                       :rules="rules.nameRules"
-                    ></v-text-field>
+                    ></v-textarea>
                   </v-col>
 
                   <v-col cols="12">
@@ -138,6 +138,7 @@
           { text: '價格', value: 'price' },
           { text: '產品介紹', value: 'description' },
           { text: '上架', value: 'sell' },
+          { text: '分類', value: 'category' },
           { text: '操作', value: 'action' }
         ],
         categories: [
