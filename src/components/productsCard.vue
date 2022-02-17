@@ -22,7 +22,7 @@
         </v-card-title>
 
         <v-fade-transition>
-          <v-overlay v-if="hover" absolute color="#1d5452">
+          <v-overlay v-if="hover" absolute color="white" style="height: 400px">
             <router-link :to="'/product/' + product._id">
               <v-btn class="go-btn" color="orange darken-1">商品詳情</v-btn>
             </router-link>

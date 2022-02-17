@@ -154,7 +154,7 @@
 
           <v-btn class="cart-btn" @click="e1 = 1" text>上一步</v-btn>
 
-          <v-btn class="cart-btn ml-10" @click="nextstep()" type="submit" text>
+          <v-btn class="cart-btn ml-10" @click="e1 = 3" type="submit" text>
             下一步
           </v-btn>
         </v-stepper-content>
@@ -257,9 +257,6 @@
       }
     },
     methods: {
-      nextstep() {
-        this.el = 3
-      },
       async updateCart(index, quantity) {
         try {
           // 更新購物車

@@ -3,24 +3,26 @@
     <v-row no-gutters>
       <!-- 分類 -->
       <v-col cols="3" class="mb-10 text-center d-flex flex-column align-center">
+        <p class="itemtitle">商品分類</p>
+
         <v-tab class="mb-5 item" @click="filter = ''">
-          <v-icon class="mr-5 item">mdi-paw</v-icon>
+          <v-icon class="mr-5 item" large>mdi-paw</v-icon>
           全部商品
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '毛孩飼料'">
-          <v-icon class="mr-5 item">mdi-bone</v-icon>
+          <v-icon class="mr-5 item" large>mdi-bone</v-icon>
           毛孩飼料
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '沐浴用品'">
-          <v-icon class="mr-5 item">mdi-shower</v-icon>
+          <v-icon class="mr-5 item" large>mdi-shower</v-icon>
           沐浴用品
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '毛孩玩具'">
-          <v-icon class="mr-5 item">mdi-teddy-bear</v-icon>
+          <v-icon class="mr-5 item" large>mdi-teddy-bear</v-icon>
           毛孩玩具
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '其他用品'">
-          <v-icon class="mr-5 item">mdi-briefcase-outline</v-icon>
+          <v-icon class="mr-5 item" large>mdi-briefcase-outline</v-icon>
           其他用品
         </v-tab>
       </v-col>
@@ -39,7 +41,7 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="1"></v-col>
+      <v-col cols="2"></v-col>
     </v-row>
   </div>
 </template>

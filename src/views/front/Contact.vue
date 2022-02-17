@@ -36,10 +36,26 @@
             <v-col cols="12">
               <v-textarea solo name="input-7-4" label="訊息內容"></v-textarea>
             </v-col>
-            <v-btn block color="#00ACC1" class="white--text">確認送出</v-btn>
+            <v-btn block color="#00ACC1" class="white--text" @click="send()">
+              確認送出
+            </v-btn>
           </v-row>
         </v-form>
       </v-col>
     </v-row>
   </div>
 </template>
+
+<script>
+  export default {
+    methods: {
+      send() {
+        this.$swal({
+          icon: 'success',
+          title: '成功',
+          text: '已收到您的表單，客服人員將儘快為您服務。'
+        })
+      }
+    }
+  }
+</script>

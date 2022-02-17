@@ -81,12 +81,12 @@ const routes = [
         }
       },
       {
-        path: 'photo',
-        name: 'Photo',
+        path: 'adopt',
+        name: 'Adopt',
         component: () =>
-          import(/* webpackChunkName: "Front" */ '../views/front/Photo.vue'),
+          import(/* webpackChunkName: "Front" */ '../views/front/Adopt.vue'),
         meta: {
-          title: '寵物寫真 | Happy Shower'
+          title: '浪浪認養 | Happy Shower'
         }
       },
       {

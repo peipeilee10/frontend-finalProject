@@ -83,15 +83,16 @@
       >
         <v-row class="d-flex justify-center">
           <v-toolbar-items>
-            <!-- <v-btn
+            <v-btn
               :ripple="false"
               plain
               text
               to="/"
               class="white--text navbartext"
             >
-              關於我們
-            </v-btn> -->
+              <v-icon>mdi-home</v-icon>
+              &nbsp;&nbsp;首頁
+            </v-btn>
             <v-btn
               :ripple="false"
               plain
@@ -99,7 +100,8 @@
               to="/service"
               class="white--text navbartext"
             >
-              服務項目
+              <v-icon>mdi-dog-service</v-icon>
+              &nbsp;&nbsp;服務項目
             </v-btn>
             <v-btn
               :ripple="false"
@@ -108,7 +110,8 @@
               to="/appointment"
               class="white--text navbartext"
             >
-              線上預約
+              <v-icon>mdi-clipboard-edit-outline</v-icon>
+              &nbsp;&nbsp;線上預約
             </v-btn>
             <v-btn
               :ripple="false"
@@ -117,16 +120,18 @@
               to="/products"
               class="white--text navbartext"
             >
-              線上購物
+              <v-icon>mdi-shopping-outline</v-icon>
+              &nbsp;&nbsp;線上購物
             </v-btn>
             <v-btn
               :ripple="false"
               plain
               text
-              to="/photo"
+              to="/adopt"
               class="white--text navbartext"
             >
-              毛孩寫真
+              <v-icon>mdi-dog</v-icon>
+              &nbsp;&nbsp;浪浪認養
             </v-btn>
             <v-btn
               :ripple="false"
@@ -135,7 +140,8 @@
               to="/contact"
               class="white--text navbartext"
             >
-              聯絡我們
+              <v-icon>mdi-phone-classic</v-icon>
+              &nbsp;&nbsp; 聯絡我們
             </v-btn>
           </v-toolbar-items>
         </v-row>
@@ -148,7 +154,7 @@
           <v-list-item-group>
             <v-list-item to="/">
               <v-list-item-content class="justify-center">
-                關於我們
+                首頁
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/service">
@@ -166,9 +172,9 @@
                 線上購物
               </v-list-item-content>
             </v-list-item>
-            <v-list-item to="/photo">
+            <v-list-item to="/adopt">
               <v-list-item-content class="justify-center">
-                毛孩寫真
+                浪浪認養
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/contact" class="justify-center p-0">

@@ -1,15 +1,14 @@
 // 商品卡片(components)
 #productsCard {
   height: 450px;
-  margin: 15px 0;
   padding: 0 15px;
   .productName {
     color: $brown;
     height: 100px;
-    width: 100%;
   }
   .productPrice {
     color: $pink;
+    margin-top: -15px;
   }
   .go-btn {
     background-color: $content-text;
@@ -26,8 +25,18 @@
 // 商品列表
 #products {
   padding: 200px 0;
+  .itemtitle {
+    color: $content-text;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 2px solid $content-text;
+    padding: 6px 30px;
+    border-radius: 10px;
+  }
   .item {
     color: $content-text;
+    font-size: 1.1rem;
   }
   // .productcol {
   //   height: 400px;

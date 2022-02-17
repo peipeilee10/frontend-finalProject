@@ -7,36 +7,58 @@
       lazy-validation
       @submit.prevent="submitsettings"
     >
-      <v-label for="name">姓名</v-label>
-      <v-text-field
-        id="name"
-        v-model="form.name"
-        :rules="rules.nameRules"
-        placeholder="姓名"
-        required
-      ></v-text-field>
+      <v-row>
+        <v-col cols="6">
+          <v-label for="name">姓名</v-label>
+          <v-text-field
+            solo
+            clearable
+            id="name"
+            v-model="form.name"
+            :rules="rules.nameRules"
+            placeholder="姓名"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <v-label for="phone">電話</v-label>
+          <v-text-field
+            solo
+            clearable
+            v-model="form.phone"
+            placeholder="聯絡電話"
+            required
+          ></v-text-field>
+        </v-col>
+      </v-row>
 
-      <v-label for="email">信箱</v-label>
-      <v-text-field
-        v-model="form.email"
-        :rules="rules.emailRules"
-        placeholder="信箱"
-        required
-      ></v-text-field>
-
-      <v-label for="address">地址</v-label>
-      <v-text-field v-model="form.address" placeholder="地址"></v-text-field>
-
-      <v-label for="phone">電話</v-label>
-      <v-text-field
-        v-model="form.phone"
-        placeholder="聯絡電話"
-        required
-      ></v-text-field>
-
-      <v-btn type="submit" :disabled="!valid" class="mt-15 save-btn">
-        儲存設定
-      </v-btn>
+      <v-row>
+        <v-col cols="6">
+          <v-label for="email">信箱</v-label>
+          <v-text-field
+            solo
+            clearable
+            v-model="form.email"
+            :rules="rules.emailRules"
+            placeholder="信箱"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="6">
+          <v-label for="address">地址</v-label>
+          <v-text-field
+            solo
+            clearable
+            v-model="form.address"
+            placeholder="地址"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <div class="text-center">
+        <v-btn type="submit" :disabled="!valid" class="mt-15 save-btn">
+          儲存設定
+        </v-btn>
+      </div>
     </v-form>
   </div>
 </template>
