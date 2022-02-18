@@ -22,51 +22,55 @@
       <v-stepper-items>
         <!-- 購物車 -->
         <v-stepper-content step="1">
-          <v-data-table :headers="headers" :items="products">
-            <template v-slot:item.image="{ item }">
-              <!-- {{ item }} -->
-              <img
-                v-if="item.product.image"
-                :src="item.product.image"
-                style="height: 100px"
-              />
-            </template>
+          <div class="text-center">
+            <v-data-table :headers="headers" :items="products">
+              <template v-slot:item.image="{ item }">
+                <!-- {{ item }} -->
+                <img
+                  v-if="item.product.image"
+                  :src="item.product.image"
+                  style="height: 100px"
+                />
+              </template>
 
-            <template v-slot:item.name="{ item }">
-              {{ item.product.name }}
-            </template>
+              <template v-slot:item.name="{ item }">
+                {{ item.product.name }}
+              </template>
 
-            <template v-slot:item.price="{ item }">
-              $ {{ new Intl.NumberFormat('en-IN').format(item.product.price) }}
-            </template>
+              <template v-slot:item.price="{ item }">
+                $
+                {{ new Intl.NumberFormat('en-IN').format(item.product.price) }}
+              </template>
 
-            <template v-slot:item.action="{ item, index }">
-              <!-- {{index}} -->
-              <div class="d-flex align-center">
-                <v-text-field
-                  label="數量"
-                  type="number"
-                  style="width: 10px"
-                  v-model="item.quantity"
-                  @input="updateCart(index, item.quantity)"
-                ></v-text-field>
-                <v-btn text color="red" @click="updateCart(index, 0)">
-                  <v-icon large>mdi-trash-can-outline</v-icon>
-                </v-btn>
-              </div>
-            </template>
-          </v-data-table>
-          <v-divider></v-divider>
-          <h2 class="mb-15 mt-5 text-right">
-            總金額：{{ new Intl.NumberFormat('en-IN').format(total) }} 元
-          </h2>
+              <template v-slot:item.action="{ item, index }">
+                <!-- {{index}} -->
+                <div class="d-flex align-center">
+                  <v-text-field
+                    label="數量"
+                    type="number"
+                    style="width: 10px"
+                    v-model="item.quantity"
+                    @input="updateCart(index, item.quantity)"
+                  ></v-text-field>
+                  <v-btn text color="red" @click="updateCart(index, 0)">
+                    <v-icon large>mdi-trash-can-outline</v-icon>
+                  </v-btn>
+                </div>
+              </template>
+            </v-data-table>
+            <v-divider></v-divider>
+            <h2 class="mb-15 mt-5 text-right">
+              總金額：{{ new Intl.NumberFormat('en-IN').format(total) }} 元
+            </h2>
 
-          <v-btn class="cart-btn" to="/products" text>回購物首頁</v-btn>
+            <v-btn class="cart-btn" to="/products" text>回購物首頁</v-btn>
 
-          <v-btn class="ml-10 cart-btn" @click="e1 = 2" text>下一步</v-btn>
+            <v-btn class="ml-10 cart-btn" @click="e1 = 2" text>下一步</v-btn>
+          </div>
         </v-stepper-content>
 
         <!-- 填寫購買資訊 -->
+
         <v-stepper-content step="2">
           <h1 class="text-center mb-15 mt-10 h1">請填寫訂購資訊</h1>
           <v-form ref="form" lazy-validation @submit.prevent="submitorders">
@@ -151,63 +155,66 @@
               </v-col>
             </v-row>
           </v-form>
+          <div class="text-center">
+            <v-btn class="cart-btn" @click="e1 = 1" text>上一步</v-btn>
 
-          <v-btn class="cart-btn" @click="e1 = 1" text>上一步</v-btn>
-
-          <v-btn class="cart-btn ml-10" @click="e1 = 3" type="submit" text>
-            下一步
-          </v-btn>
+            <v-btn class="cart-btn ml-10" @click="e1 = 3" type="submit" text>
+              下一步
+            </v-btn>
+          </div>
         </v-stepper-content>
 
         <!-- 確認結帳 -->
-        <v-stepper-content step="3">
-          <h1 class="text-center mb-15 mt-10">確認結帳</h1>
-          <v-simple-table class="mb-15 text-center">
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-center">項目</th>
-                  <th class="text-center">資訊</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>訂購人姓名</td>
-                  <td>{{ form.name }}</td>
-                </tr>
-                <tr>
-                  <td>訂購人信箱</td>
-                  <td>{{ form.email }}</td>
-                </tr>
-                <tr>
-                  <td>訂購人地址</td>
-                  <td>{{ form.address }}</td>
-                </tr>
-                <tr>
-                  <td>訂購人電話</td>
-                  <td>{{ form.phone }}</td>
-                </tr>
-                <tr>
-                  <td>取貨方式</td>
-                  <td>{{ form.pickupway }}</td>
-                </tr>
-                <tr>
-                  <td>付款方式</td>
-                  <td>{{ form.pay }}</td>
-                </tr>
-                <tr>
-                  <td>備註</td>
-                  <td>{{ form.memo }}</td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
+        <v-stepper-content step="3" class="step3">
+          <div class="text-center">
+            <h1 class="text-center mb-15 mt-10">確認結帳</h1>
+            <v-simple-table class="mb-15 text-center">
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-center">項目</th>
+                    <th class="text-center">資訊</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>訂購人姓名</td>
+                    <td>{{ form.name }}</td>
+                  </tr>
+                  <tr>
+                    <td>訂購人信箱</td>
+                    <td>{{ form.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>訂購人地址</td>
+                    <td>{{ form.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>訂購人電話</td>
+                    <td>{{ form.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>取貨方式</td>
+                    <td>{{ form.pickupway }}</td>
+                  </tr>
+                  <tr>
+                    <td>付款方式</td>
+                    <td>{{ form.pay }}</td>
+                  </tr>
+                  <tr>
+                    <td>備註</td>
+                    <td>{{ form.memo }}</td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
 
-          <v-btn class="cart-btn" @click="e1 = 2" text>上一步</v-btn>
+            <v-btn class="cart-btn" @click="e1 = 2" text>上一步</v-btn>
 
-          <v-btn class="cart-btn ml-5" @click="e1 = 1" text>回第一頁</v-btn>
+            <v-btn class="cart-btn ml-5" @click="e1 = 1" text>回第一頁</v-btn>
 
-          <v-btn class="cart-btn ml-5" text @click="checkout">確認結帳</v-btn>
+            <v-btn class="cart-btn ml-5" text @click="checkout">確認結帳</v-btn>
+          </div>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>

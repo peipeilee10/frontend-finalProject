@@ -29,18 +29,26 @@
     background-color: white;
     opacity: 0.8;
   }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+  }
 }
 
 // 關於
 .about {
   padding: 100px 0;
-  h1 {
-    margin-bottom: 80px;
-  }
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .aboutustext {
+    width: 100%;
+    text-align: center;
+    line-height: 2;
+    color: $grey;
   }
 }
 

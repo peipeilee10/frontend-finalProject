@@ -57,7 +57,7 @@
         console.log(data.result)
         this.carousel = data.result
       } catch (error) {
-        console.log(error)
+        console.log(error.response.data.message)
       }
     }
   }
