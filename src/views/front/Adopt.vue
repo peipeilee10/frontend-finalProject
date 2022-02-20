@@ -34,7 +34,7 @@
       </v-col>
       <v-col cols="8">
         <v-row>
-          <v-col cols="3" v-for="info in filterItems" :key="info.index">
+          <v-col cols="6" md="3" v-for="info in filterItems" :key="info.index">
             <v-card class="mx-auto" max-width="344">
               <v-img :src="info.album_file" height="350"></v-img>
 
