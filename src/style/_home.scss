@@ -27,6 +27,28 @@
   }
 }
 
+@include md {
+  #carousel {
+    margin-top: 80px;
+    height: calc(50% - 130px);
+    .carousel-img {
+      width: 100vw;
+      height: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+@include sm {
+  #carousel {
+    .carousel-img {
+      width: 100vw;
+      height: 40%;
+      object-fit: cover;
+    }
+  }
+}
+
 // 關於
 .about {
   padding: 100px 0;
@@ -44,7 +66,38 @@
   }
 }
 
-@include lg {
+@include md {
+  .about {
+    padding: -100px 0;
+  }
+  .aboutustext {
+    width: 100%;
+    text-align: center;
+    line-height: 2;
+    color: $grey;
+  }
+}
+
+@include md {
+  .about {
+    .rightimage {
+      display: none;
+    }
+    .aboutustext {
+      width: 100%;
+      text-align: center;
+      line-height: 1.5;
+      color: $grey;
+    }
+  }
+}
+
+@include xs {
+  .about {
+    .leftimage {
+      display: none;
+    }
+  }
 }
 
 // 預約服務流程
@@ -53,8 +106,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
+  height: 90vh;
+  width: 100%;
   position: relative;
   text-align: center;
   h1 {
@@ -66,12 +119,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -80%);
     height: 300px;
-    width: 1200px;
+    width: 100%;
 
     .line {
-      width: 1200px;
+      width: 60%;
       height: 3px;
       background-color: $cyancolor;
       position: absolute;
@@ -80,7 +133,7 @@
       transform: translate(-50%, -50%);
     }
     .reservateservice-wrap-upper {
-      width: 1200px;
+      width: 60%;
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -91,7 +144,7 @@
     }
 
     .reservateservice-wrap-lower {
-      width: 1200px;
+      width: 60%;
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -110,7 +163,7 @@
       }
     }
     .dotwrap {
-      width: 1200px;
+      width: 60%;
       display: flex;
       justify-content: space-around;
       position: absolute;
@@ -125,6 +178,9 @@
       }
     }
   }
+}
+
+@include xs {
 }
 
 // 團隊介紹
@@ -143,11 +199,11 @@
   .designer {
     color: $content-text;
   }
+}
 
-  @include md {
-    .swiper-pagination {
-      display: none;
-    }
+@media (min-width: 1200px) {
+  .swiper-pagination {
+    display: none;
   }
 }
 
@@ -184,7 +240,9 @@
     font-size: 1.5rem;
     letter-spacing: 0.2em;
   }
-  @include md {
+
+
+  @media (min-width: 1200px) {
     .swiper-pagination {
       display: none;
     }

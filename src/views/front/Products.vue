@@ -2,7 +2,11 @@
   <div id="products">
     <v-row no-gutters>
       <!-- 分類 -->
-      <v-col cols="3" class="mb-10 text-center d-flex flex-column align-center">
+      <v-col
+        cols="4"
+        md="3"
+        class="mb-10 text-center d-flex flex-column align-center"
+      >
         <p class="itemtitle">商品分類</p>
 
         <v-tab class="mb-5 item" @click="filter = ''">
@@ -28,7 +32,7 @@
       </v-col>
 
       <!-- 商品 -->
-      <v-col cols="7">
+      <v-col cols="8" md="7">
         <v-row>
           <v-col
             cols="6"

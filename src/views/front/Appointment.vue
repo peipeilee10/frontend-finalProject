@@ -1,22 +1,25 @@
 <template>
   <div id="appointment">
     <!-- 預約 -->
+    <h1 class="h1 text-center">線上預約</h1>
     <v-row dense class="mt-15 mb-5 flex-column">
       <v-col>
         <v-row dense>
-          <v-col cols="2"></v-col>
-          <v-col cols="8">
+          <v-col cols="0" md="2"></v-col>
+          <v-col cols="12" md="8">
             <!-- 卡片 -->
             <v-card class="appointmentcard">
-              <v-row no-gutters>
+              <v-row no-gutters class="appointmentcardrow">
                 <!-- 圖片 -->
-                <v-col cols="4" class="text-center">
+                <v-col cols="4" md="4" class="text-center">
                   <v-img
+                    class="petimage"
                     v-if="pet === '貓貓'"
                     src="../../assets/image/appointmentcat.jpg"
                     style="border-radius: 8px; height: 100%; object-fit: cover"
                   ></v-img>
                   <v-img
+                    class="petimage"
                     v-if="pet === '狗狗'"
                     src="../../assets/image/appointment.jpg"
                     style="
@@ -28,7 +31,7 @@
                 </v-col>
 
                 <!-- 選單 -->
-                <v-col cols="8" class="pr-15 pl-5 pt-5">
+                <v-col cols="12" md="8" class="pr-15 pl-5 pt-5">
                   <v-row>
                     <!-- 毛孩類別 -->
                     <v-col cols="6">
@@ -335,7 +338,7 @@
               </v-row>
             </v-card>
           </v-col>
-          <v-col cols="2"></v-col>
+          <v-col cols="0" md="2"></v-col>
         </v-row>
       </v-col>
     </v-row>

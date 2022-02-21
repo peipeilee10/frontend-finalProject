@@ -53,28 +53,28 @@
         service: [
           {
             item: '小型犬',
-            small: '$800/1hr',
-            large: '$1,500/2hr'
+            small: '$ 800/1hr',
+            large: '$ 1,500/2hr'
           },
           {
             item: '中型犬',
-            small: '$1,200/1hr',
-            large: '$2,400/2hr'
+            small: '$ 1,200/1hr',
+            large: '$ 2,400/2hr'
           },
           {
             item: '大型犬',
-            small: '$1,600/2hr',
-            large: '$3,200/2.5hr'
+            small: '$ 1,600/2hr',
+            large: '$ 3,200/2.5hr'
           },
           {
             item: '短毛貓',
-            small: '$1,300/1hr',
-            large: '$2,500/2hr'
+            small: '$ 1,300/1hr',
+            large: '$ 2,500/2hr'
           },
           {
             item: '長毛貓',
-            small: '$1,600/1.5hr',
-            large: '$2,800/2hr'
+            small: '$ 1,600/1.5hr',
+            large: '$ 2,800/2hr'
           }
         ]
       }

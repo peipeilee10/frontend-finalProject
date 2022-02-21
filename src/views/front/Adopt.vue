@@ -15,26 +15,26 @@
     <v-row>
       <v-col cols="2">
         <!-- 分類 -->
-        <v-tab class="mb-5 item" @click="filter = '狗'">
+        <v-tab class="mb-5 item" @click="petitem('狗')">
           <v-icon class="mr-5 item" large>mdi-dog-side</v-icon>
           狗狗
         </v-tab>
-        <v-tab class="mb-5 item" @click="filter = '貓'">
+        <v-tab class="mb-5 item" @click="petitem('貓')">
           <v-icon class="mr-5 item" large>mdi-cat</v-icon>
           貓咪
         </v-tab>
-        <v-tab class="mb-5 item" @click="filter = 'MEDIUM'">
+        <v-tab class="mb-5 item" @click="petitem('MEDIUM')">
           <v-icon class="mr-5 item" large>mdi-alpha-m-circle</v-icon>
           中型
         </v-tab>
-        <v-tab class="mb-5 item" @click="filter = 'SMALL'">
+        <v-tab class="mb-5 item" @click="petitem('SMALL')">
           <v-icon class="mr-5 item" large>mdi-alpha-s-circle</v-icon>
           小型
         </v-tab>
       </v-col>
       <v-col cols="8">
         <v-row>
-          <v-col cols="6" md="3" v-for="info in filterItems" :key="info.index">
+          <v-col cols="6" md="3" v-for="info in sliceitems" :key="info.index">
             <v-card class="mx-auto" max-width="344">
               <v-img :src="info.album_file" height="350"></v-img>
 
@@ -61,24 +61,6 @@
                 </p>
               </v-card-text>
 
-              <!-- <v-card-actions>
-                <v-btn color="orange lighten-2" text>更多訊息</v-btn>
-
-                <v-spacer></v-spacer>
-
-                <v-btn icon @click="show = !show">
-                  <v-icon>
-                    {{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}
-                  </v-icon>
-                </v-btn>
-              </v-card-actions>
-
-               <v-expand-transition>
-                <div v-show="show">
-                  <v-divider></v-divider>
-
-                </div>
-              </v-expand-transition> -->
             </v-card>
           </v-col>
         </v-row>
@@ -86,9 +68,9 @@
       <v-col cols="2"></v-col>
     </v-row>
 
-    <!-- <div class="text-center">
-      <v-pagination v-model="page" :length="6"></v-pagination>
-    </div> -->
+    <div class="text-center mt-15">
+      <v-pagination v-model="page" :length="Math.ceil(filterItems.length/20)" @input="top" total-visible="5" ></v-pagination>
+    </div>
   </div>
 </template>
 
@@ -121,6 +103,19 @@
             return item.animal_bodytype === 'SMALL'
           }
         })
+      },
+      sliceitems() {
+        return this.filterItems.slice((this.page - 1) * 20, (this.page - 1) * 20 + 20)
+      }
+    },
+    methods: {
+      petitem(pet) {
+        this.filter = pet
+        this.page = 1
+        this.top()
+      },
+      top() {
+        window.scrollTo({ top: 0 })
       }
     },
     async created() {

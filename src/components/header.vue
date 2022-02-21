@@ -3,16 +3,16 @@
     <v-row id="header" class="d-flex align-center">
       <v-app-bar-nav-icon
         @click="sidebar = !sidebar"
-        class="hidden-sm-and-up ms-5"
+        class="hidden-md-and-up ms-5"
       ></v-app-bar-nav-icon>
-      <v-col class="d-flex justify-center align-center hidden-sm-and-down">
-        <a href="#" class="me-2">
+      <v-col class="d-flex justify-center align-center">
+        <a href="#" class="me-2 hidden-md-and-down">
           <v-icon large color="grey darken-1">mdi-facebook</v-icon>
         </a>
-        <a href="#" class="me-2">
+        <a href="#" class="me-2 hidden-md-and-down">
           <v-icon large color="grey darken-1">mdi-instagram</v-icon>
         </a>
-        <a href="#" class="me-2">
+        <a href="#" class="me-2 hidden-md-and-down">
           <v-icon large color="grey darken-1">mdi-forum</v-icon>
         </a>
       </v-col>
@@ -73,13 +73,14 @@
       </v-col>
     </v-row>
 
+    <!-- 導覽列 -->
     <nav>
       <v-app-bar
         flat
         id="navbar"
         height="60px"
         min-width="100vw"
-        class="justify-end hidden-sm-and-down cyan darken-1 appbar"
+        class="justify-end hidden-md-and-down cyan darken-1 appbar"
       >
         <v-row class="d-flex justify-center">
           <v-toolbar-items>
@@ -150,52 +151,88 @@
       <!-- 縮小左側欄 -->
 
       <v-navigation-drawer v-model="sidebar" disable-resize-watcher app>
+        <div class="text-center">
+          <img
+            src="../assets/image/HappyShowerLogo-01.png"
+            class="logoimgdrawer"
+          />
+        </div>
         <v-list flat>
           <v-list-item-group>
             <v-list-item to="/">
+              <v-list-icon>
+                <v-icon>mdi-home</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 首頁
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/service">
+              <v-list-icon>
+                <v-icon>mdi-dog-service</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 服務項目
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/appointment">
+              <v-list-icon>
+                <v-icon>mdi-clipboard-edit-outline</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 線上預約
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/products">
+              <v-list-icon>
+                <v-icon>mdi-shopping-outline</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 線上購物
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/adopt">
+              <v-list-icon>
+                <v-icon>mdi-dog</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 浪浪認養
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/contact" class="justify-center p-0">
+              <v-list-icon>
+                <v-icon>mdi-phone-classic</v-icon>
+              </v-list-icon>
               <v-list-item-content class="justify-center">
                 聯絡我們
               </v-list-item-content>
             </v-list-item>
+
+            <v-list-item to="/back/member" class="justify-center p-0">
+              <v-list-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-icon>
+              <v-list-item-content class="justify-center">
+                會員專區
+              </v-list-item-content>
+            </v-list-item>
+
             <div class="d-flex justify-center mt-10">
-              <a
-                href="#"
-                class="mr-5 text-h6 cyan--text text--darken-1 font-weight-bold"
-              >
-                登入
-              </a>
+              <router-link to="/login">
+                <span
+                  class="mr-5 text-h6 cyan--text text--darken-1 font-weight-bold"
+                >
+                  登入
+                </span>
+              </router-link>
               <span class="text-h5">|</span>
-              <a
-                href="#"
-                class="ml-5 text-h6 cyan--text text--darken-1 font-weight-bold"
-              >
-                註冊
-              </a>
+              <router-link to="/register">
+                <span
+                  class="ml-5 text-h6 cyan--text text--darken-1 font-weight-bold"
+                >
+                  註冊
+                </span>
+              </router-link>
             </div>
           </v-list-item-group>
         </v-list>

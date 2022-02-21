@@ -220,6 +220,7 @@
                 appointment.appointment.appointmenttime
             )
             appointment.color = this.colors[this.rnd(0, this.colors.length - 1)]
+            appointment.timed = true
             return appointment
           })
           this.events = this.eventsAll

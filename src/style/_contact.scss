@@ -8,3 +8,10 @@
     color: $content-text;
   }
 }
+
+@include md{
+  .contactrow{
+  flex-direction: column;
+  align-items: center;
+  }
+}

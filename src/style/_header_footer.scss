@@ -3,6 +3,7 @@
   z-index: 999;
   top: 0;
   left: 0;
+  width: 100%;
   .v-btn__content {
     font-size: 1.2rem !important;
     font-weight: 300;
@@ -22,6 +23,10 @@
     height: 100px;
     padding: 2rem 0;
     background-color: white;
+  }
+  .logoimgdrawer {
+    width: 200px;
+    margin: auto;
   }
 }
 
