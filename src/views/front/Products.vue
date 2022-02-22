@@ -1,38 +1,43 @@
 <template>
   <div id="products">
-    <v-row no-gutters>
+    <p class="mb-10 ml-6 hidden-sm-and-up">商品分類</p>
+    <v-row no-gutters class="productrow">
       <!-- 分類 -->
       <v-col
-        cols="4"
+        cols="12"
         md="3"
-        class="mb-10 text-center d-flex flex-column align-center"
+        class="mb-10 text-center d-flex flex-column align-center bc"
       >
-        <p class="itemtitle">商品分類</p>
+        <p class="itemtitle hidden-md-and-down">商品分類</p>
 
         <v-tab class="mb-5 item" @click="filter = ''">
-          <v-icon class="mr-5 item" large>mdi-paw</v-icon>
+          <v-icon class="mr-5 item hidden-md-and-down" large>mdi-paw</v-icon>
           全部商品
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '毛孩飼料'">
-          <v-icon class="mr-5 item" large>mdi-bone</v-icon>
+          <v-icon class="mr-5 item hidden-md-and-down" large>mdi-bone</v-icon>
           毛孩飼料
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '沐浴用品'">
-          <v-icon class="mr-5 item" large>mdi-shower</v-icon>
+          <v-icon class="mr-5 item hidden-md-and-down" large>mdi-shower</v-icon>
           沐浴用品
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '毛孩玩具'">
-          <v-icon class="mr-5 item" large>mdi-teddy-bear</v-icon>
+          <v-icon class="mr-5 item hidden-md-and-down" large>
+            mdi-teddy-bear
+          </v-icon>
           毛孩玩具
         </v-tab>
         <v-tab class="mb-5 item" @click="filter = '其他用品'">
-          <v-icon class="mr-5 item" large>mdi-briefcase-outline</v-icon>
+          <v-icon class="mr-5 item hidden-md-and-down" large>
+            mdi-briefcase-outline
+          </v-icon>
           其他用品
         </v-tab>
       </v-col>
 
       <!-- 商品 -->
-      <v-col cols="8" md="7">
+      <v-col cols="12" md="7">
         <v-row>
           <v-col
             cols="6"

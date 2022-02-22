@@ -4,11 +4,12 @@
   padding: 0 15px;
   .productName {
     color: $brown;
+    font-size: 18px;
     height: 100px;
   }
   .productPrice {
     color: $pink;
-    margin-top: -15px;
+    // margin-top: -15px;
   }
   .go-btn {
     background-color: $content-text;
@@ -43,6 +44,18 @@
   // }
 }
 
+@include sm {
+  #products {
+    .productrow {
+      flex-direction: column;
+    }
+    .bc {
+      display: flex;
+      flex-direction: row !important;
+    }
+  }
+}
+
 // 商品內頁介紹
 #productself {
   padding: 200px 0;
@@ -72,9 +85,11 @@
     font-size: 2rem;
     font-weight: bolder;
   }
-  .btn {
-    background-color: $yellow;
-    color: white;
+}
+
+@include md {
+  .btn-1 {
+    display: block;
   }
 }
 

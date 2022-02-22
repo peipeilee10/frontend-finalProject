@@ -192,7 +192,7 @@ const routes = [
             name: 'AdminAppointment',
             component: () =>
               import(
-                /* webpackChunkName: "admin" */ '../views/back/admin/AdminAppointment.vue'
+                /* webpackChunkName: "Admin" */ '../views/back/admin/AdminAppointment.vue'
               ),
             meta: {
               login: true,
@@ -205,7 +205,7 @@ const routes = [
             name: 'AdminOrders',
             component: () =>
               import(
-                /* webpackChunkName: "admin" */ '../views/back/admin/AdminOrders.vue'
+                /* webpackChunkName: "Admin" */ '../views/back/admin/AdminOrders.vue'
               ),
             meta: {
               login: true,
@@ -218,7 +218,7 @@ const routes = [
             name: 'Productsell',
             component: () =>
               import(
-                /* webpackChunkName: "admin" */ '../views/back/admin/Productsell.vue'
+                /* webpackChunkName: "Admin" */ '../views/back/admin/Productsell.vue'
               ),
             meta: {
               login: true,
@@ -231,7 +231,7 @@ const routes = [
             name: 'CarouselChange',
             component: () =>
               import(
-                /* webpackChunkName: "admin" */ '../views/back/admin/CarouselChange.vue'
+                /* webpackChunkName: "Admin" */ '../views/back/admin/CarouselChange.vue'
               ),
             meta: {
               login: true,

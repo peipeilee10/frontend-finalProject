@@ -33,7 +33,7 @@
           <v-icon
             large
             color="grey darken-1"
-            class="mr-5"
+            class="mr-5 hidden-md-and-down"
             v-if="user.isLogin && !user.isAdmin"
           >
             mdi-account
@@ -43,7 +43,7 @@
           <v-icon
             large
             color="grey darken-1"
-            class="mr-5"
+            class="mr-5 hidden-md-and-down"
             v-if="user.isLogin && user.isAdmin"
           >
             mdi-account-tie-hat
@@ -54,9 +54,14 @@
             color="red"
             :content="user.cart"
             v-if="user.cart"
-            class="mb-5"
+            class="mb-5 hidden-md-and-down"
           ></v-badge>
-          <v-icon large color="grey darken-1" class="mr-5" v-if="user.isLogin">
+          <v-icon
+            large
+            color="grey darken-1"
+            class="mr-5 hidden-md-and-down"
+            v-if="user.isLogin"
+          >
             mdi-cart-outline +
           </v-icon>
         </router-link>
@@ -66,6 +71,7 @@
             color="grey darken-1"
             v-if="user.isLogin"
             @click="logout"
+            class="hidden-md-and-down"
           >
             mdi-logout
           </v-icon>
@@ -160,66 +166,74 @@
         <v-list flat>
           <v-list-item-group>
             <v-list-item to="/">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 首頁
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/service">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-dog-service</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 服務項目
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/appointment">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-clipboard-edit-outline</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 線上預約
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/products">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-shopping-outline</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 線上購物
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/adopt">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-dog</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 浪浪認養
               </v-list-item-content>
             </v-list-item>
             <v-list-item to="/contact" class="justify-center p-0">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-phone-classic</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 聯絡我們
               </v-list-item-content>
             </v-list-item>
 
             <v-list-item to="/back/member" class="justify-center p-0">
-              <v-list-icon>
+              <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
-              </v-list-icon>
+              </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 會員專區
               </v-list-item-content>
             </v-list-item>
 
             <div class="d-flex justify-center mt-10">
+              <span
+                v-if="user.isLogin"
+                class="mr-5 text-h6 cyan--text text--darken-1 font-weight-bold"
+                @click="logout"
+              >
+                登出
+              </span>
               <router-link to="/login">
                 <span
+                  v-if="!user.isLogin"
                   class="mr-5 text-h6 cyan--text text--darken-1 font-weight-bold"
                 >
                   登入
@@ -234,6 +248,7 @@
                 </span>
               </router-link>
             </div>
+            <div class="text-center mt-10"></div>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>

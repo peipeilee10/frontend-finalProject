@@ -143,11 +143,11 @@
             },
             768: {
               slidesPerView: 2,
-              spaceBetween: 10
+              spaceBetween: 30
             },
             320: {
               slidesPerView: 1,
-              spaceBetween: 10
+              spaceBetween: 30
             }
           }
         }

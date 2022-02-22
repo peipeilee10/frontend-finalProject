@@ -1,8 +1,8 @@
 <template>
-  <v-footer id="footer" color="cyan darken-1" padless height="250px">
+  <v-footer id="footer" color="cyan darken-1">
     <v-row>
-      <v-col cols="2"></v-col>
-      <v-col cols="8">
+      <v-col cols="1" md="2"></v-col>
+      <v-col cols="12" md="8">
         <v-row>
           <v-col cols="6">
             <div class="membercenter">
@@ -29,7 +29,7 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="2"></v-col>
+      <v-col cols="1" md="2" class="hidden-sm-and-down"></v-col>
     </v-row>
   </v-footer>
 </template>

@@ -11,7 +11,7 @@
             <v-card class="appointmentcard">
               <v-row no-gutters class="appointmentcardrow">
                 <!-- 圖片 -->
-                <v-col cols="4" md="4" class="text-center">
+                <v-col cols="4" md="4" class="text-center hidden-md-and-down">
                   <v-img
                     class="petimage"
                     v-if="pet === '貓貓'"
@@ -34,7 +34,7 @@
                 <v-col cols="12" md="8" class="pr-15 pl-5 pt-5">
                   <v-row>
                     <!-- 毛孩類別 -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <div class="pet">
                         <div class="itemTitle">毛孩類別</div>
                         <v-btn
@@ -67,7 +67,7 @@
                     </v-col>
 
                     <!-- 預約日期 -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <div class="date">
                         <span class="itemTitle">預約日期</span>
                         <v-col cols="12">
@@ -102,7 +102,7 @@
                   </v-row>
                   <v-row>
                     <!-- 毛孩類型 -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <div class="pet-type">
                         <div class="itemTitle">毛孩類型</div>
                         <v-btn
@@ -175,7 +175,7 @@
                     </v-col>
 
                     <!-- 預約時段 -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <div class="booking-time">
                         <div class="itemTitle">預約時段</div>
                         <v-btn
@@ -195,7 +195,7 @@
                   </v-row>
                   <v-row>
                     <!-- 服務項目 -->
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <div class="serviceitem">
                         <div class="itemTitle">服務項目</div>
                         <v-btn
@@ -224,7 +224,7 @@
                         </v-btn>
                       </div>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col cols="12" md="6">
                       <span class="price">
                         <span
                           v-if="

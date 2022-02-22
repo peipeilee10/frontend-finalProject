@@ -10,9 +10,10 @@
         <v-img :src="product.image" class="productimg"></v-img>
 
         <v-card-title>
-          <div class="productName" style="white-space: pre">
-            {{ product.name }}
-          </div>
+          <div
+            class="productName"
+            v-html="product.name.replace(/\n/g, '<br>')"
+          ></div>
         </v-card-title>
 
         <v-card-title>

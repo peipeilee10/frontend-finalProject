@@ -34,94 +34,98 @@
               新增
             </v-btn>
           </template>
+          <v-form ref="form">
+            <v-card>
+              <v-card-title>
+                <span class="text-h5 text-center" v-if="form._id">
+                  編輯商品
+                </span>
+                <span class="text-h5 text-center" v-else>新增商品</span>
+              </v-card-title>
 
-          <v-card>
-            <v-card-title>
-              <span class="text-h5 text-center" v-if="form._id">編輯商品</span>
-              <span class="text-h5 text-center" v-else>新增商品</span>
-            </v-card-title>
+              <v-card-text>
+                <v-container>
+                  <v-row>
+                    <v-col cols="12">
+                      <v-textarea
+                        v-model="form.name"
+                        label="商品名稱"
+                        required
+                        :rules="rules.nameRules"
+                      ></v-textarea>
+                    </v-col>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12">
-                    <v-textarea
-                      v-model="form.name"
-                      label="商品名稱"
-                      required
-                      :rules="rules.nameRules"
-                    ></v-textarea>
-                  </v-col>
+                    <v-col cols="12">
+                      <v-text-field
+                        v-model="form.price"
+                        type="number"
+                        label="商品價格"
+                        required
+                        :rules="rules.priceRules"
+                      ></v-text-field>
+                    </v-col>
 
-                  <v-col cols="12">
-                    <v-text-field
-                      v-model="form.price"
-                      type="number"
-                      label="商品價格"
-                      required
-                      :rules="rules.priceRules"
-                    ></v-text-field>
-                  </v-col>
+                    <v-col cols="12">
+                      <v-textarea
+                        v-model="form.description"
+                        filled
+                        name="input-7-4"
+                        label="商品說明"
+                        :rules="rules.descriptionRules"
+                      ></v-textarea>
+                    </v-col>
+                    <v-col cols="12">
+                      <v-label>商品分類</v-label>
+                      <v-select
+                        :items="categories"
+                        label="分類"
+                        v-model="form.category"
+                      ></v-select>
+                    </v-col>
 
-                  <v-col cols="12">
-                    <v-textarea
-                      v-model="form.description"
-                      filled
-                      name="input-7-4"
-                      label="商品說明"
-                      :rules="rules.descriptionRules"
-                    ></v-textarea>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-label>商品分類</v-label>
-                    <v-select
-                      :items="categories"
-                      label="分類"
-                      v-model="form.category"
-                    ></v-select>
-                  </v-col>
+                    <v-col cols="12">
+                      <v-label>商品狀態</v-label>
+                      <v-radio-group v-model="form.sell">
+                        <v-radio label="上架" value="true">上架</v-radio>
+                        <v-radio label="下架" value="false">下架</v-radio>
+                      </v-radio-group>
+                    </v-col>
 
-                  <v-col cols="12">
-                    <v-label>商品狀態</v-label>
-                    <v-radio-group v-model="form.sell">
-                      <v-radio label="上架" value="true">上架</v-radio>
-                      <v-radio label="下架" value="false">下架</v-radio>
-                    </v-radio-group>
-                  </v-col>
+                    <img-inputer
+                      v-model="form.image"
+                      theme="dark"
+                      bottom-text="點選或拖拽圖片以修改"
+                      hover-text="點選或拖拽圖片以修改"
+                      placeholder="點選或拖拽選擇圖片"
+                      :max-size="1024"
+                      exceed-size-text="檔案大小不能超過"
+                    ></img-inputer>
+                  </v-row>
+                </v-container>
+              </v-card-text>
 
-                  <img-inputer
-                    v-model="form.image"
-                    theme="dark"
-                    bottom-text="點選或拖拽圖片以修改"
-                    hover-text="點選或拖拽圖片以修改"
-                    placeholder="點選或拖拽選擇圖片"
-                    :max-size="1024"
-                    exceed-size-text="檔案大小不能超過"
-                  ></img-inputer>
-                </v-row>
-              </v-container>
-            </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  type="cancel"
+                  @click="close()"
+                >
+                  關閉
+                </v-btn>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                type="cancel"
-                @click="dialog = false"
-              >
-                關閉
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="submitModal"
-                :disabled="isSaving"
-              >
-                保存
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+                <v-btn
+                  color="blue darken-1"
+                  text
+                  @click="submitModal"
+                  :disabled="isSaving"
+                >
+                  保存
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-form>
         </v-dialog>
       </v-row>
     </div>
@@ -243,7 +247,6 @@
             }
           }
 
-          this.isSaving = false
           this.dialog = false
           this.getProduct()
         } catch (error) {
@@ -254,6 +257,7 @@
             text: error.response.data.message
           })
         }
+        this.isSaving = false
       },
       editProduct(id) {
         const index = this.products.findIndex(product => product._id === id)
@@ -290,6 +294,20 @@
           })
         }
       },
+      close() {
+        this.$refs.form.reset()
+        this.dialog = false
+        this.form = {
+          name: '',
+          price: null,
+          description: '',
+          image: null,
+          sell: false,
+          _id: '',
+          index: -1,
+          category: ''
+        }
+      },
       async getProduct() {
         try {
           const { data } = await this.api.get('/products/all', {
@@ -304,6 +322,13 @@
             title: '錯誤',
             text: '取得商品失敗'
           })
+        }
+      }
+    },
+    watch: {
+      dialog(value) {
+        if (value === false) {
+          this.close()
         }
       }
     },

@@ -60,7 +60,6 @@
                   編號&nbsp;&nbsp;&nbsp;&nbsp;：{{ info.animal_subid }}
                 </p>
               </v-card-text>
-
             </v-card>
           </v-col>
         </v-row>
@@ -69,7 +68,12 @@
     </v-row>
 
     <div class="text-center mt-15">
-      <v-pagination v-model="page" :length="Math.ceil(filterItems.length/20)" @input="top" total-visible="5" ></v-pagination>
+      <v-pagination
+        v-model="page"
+        :length="Math.ceil(filterItems.length / 20)"
+        @input="top"
+        total-visible="5"
+      ></v-pagination>
     </div>
   </div>
 </template>
@@ -105,7 +109,10 @@
         })
       },
       sliceitems() {
-        return this.filterItems.slice((this.page - 1) * 20, (this.page - 1) * 20 + 20)
+        return this.filterItems.slice(
+          (this.page - 1) * 20,
+          (this.page - 1) * 20 + 20
+        )
       }
     },
     methods: {

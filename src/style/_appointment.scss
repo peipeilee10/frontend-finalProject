@@ -23,21 +23,21 @@
   }
 }
 
-@include xs {
-  .petimage {
-    display: none;
-  }
-}
-@include sm {
-  .petimage {
-    display: none;
-  }
-}
-@include md {
-  .petimage {
-    display: block;
-  }
-}
+// @include xs {
+//   .petimage {
+//     display: none;
+//   }
+// }
+// @include sm {
+//   .petimage {
+//     display: none;
+//   }
+// }
+// @include md {
+//   .petimage {
+//     display: block;
+//   }
+// }
 
 .select {
   border: 1px solid $orange !important;
@@ -71,5 +71,13 @@
     border: 6px solid $cyancolor;
     border-radius: 10px;
     box-shadow: 8px 6px 2px #e9ffff;
+  }
+}
+
+@include sm {
+  #appointmentCheckout {
+    margin: auto;
+    padding: 0px 0;
+    width: 100%;
   }
 }
