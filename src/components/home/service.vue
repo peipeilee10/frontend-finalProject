@@ -12,7 +12,7 @@
           </p>
         </div>
         <div class="servicetext">
-          <v-icon size="50" color="cyan   darken-1">
+          <v-icon size="50" color="cyan darken-1">
             mdi-storefront-outline
           </v-icon>
         </div>
@@ -55,13 +55,13 @@
       </div>
     </div>
 
-    <div class="serviceProcess-sm d-sm-flex d-lg-none d-md-flex">
+    <div class="serviceProcess2 d-sm-flex d-lg-none d-md-flex">
       <p>
-        <v-icon color="#1d5452" class="mr-5">mdi-numeric-1-box-outline</v-icon>
+        <v-icon color="#1d5452" class="mr-5 ">mdi-numeric-1-box-outline</v-icon>
         預定美容日期
       </p>
       <p>
-        <v-icon color="#1d5452" class="mr-5">mdi-numeric-2-box-outline</v-icon>
+        <v-icon color="#1d5452" class="mr-5 icon">mdi-numeric-2-box-outline</v-icon>
         到店服務
       </p>
       <p>

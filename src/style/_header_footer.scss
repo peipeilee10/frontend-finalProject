@@ -30,6 +30,14 @@
   }
 }
 
+@include md {
+  #headernav {
+    #header {
+      height: 80px;
+    }
+  }
+}
+
 // #navbar {
 //   position: fixed;
 // }

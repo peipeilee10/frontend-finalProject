@@ -2,9 +2,11 @@
   <div id="contactus" class="container">
     <h1 class="h1">聯絡我們</h1>
     <p class="text-center mb-10">
-      洗澡趣寵物美容重視您的意見，若您有任何疑問，可以在此處留下問題
+      洗澡趣寵物美容重視您的意見，若您有任何疑問
       <br />
-      亦可於上班時間聯絡客服人員，我們將竭誠為您服務。
+      可以在此處留下問題，亦可於上班時間聯絡客服人員
+      <br />
+      我們將竭誠為您服務。
     </p>
 
     <v-row class="contactrow">

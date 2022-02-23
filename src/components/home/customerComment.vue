@@ -3,7 +3,7 @@
     <h1 class="h1 text-center">顧客好評</h1>
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
-        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+        <v-card class="mx-auto my-12" max-width="374">
           <template slot="progress">
             <v-progress-linear
               color="deep-purple"
@@ -42,7 +42,7 @@
         </v-card>
       </swiper-slide>
       <swiper-slide>
-        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+        <v-card class="mx-auto my-12" max-width="374">
           <template slot="progress">
             <v-progress-linear
               color="deep-purple"
@@ -81,7 +81,7 @@
         </v-card>
       </swiper-slide>
       <swiper-slide>
-        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+        <v-card class="mx-auto my-12" max-width="374">
           <template slot="progress">
             <v-progress-linear
               color="deep-purple"

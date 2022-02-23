@@ -32,7 +32,7 @@
           小型
         </v-tab>
       </v-col>
-      <v-col cols="12" md="12" lg="8">
+      <v-col cols="12" md="12" lg="9">
         <v-row>
           <v-col
             lg="3"
@@ -70,7 +70,7 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="12" md="12" lg="2" class="hidden-md-and-down"></v-col>
+      <v-col cols="12" md="12" lg="1" class="hidden-md-and-down"></v-col>
     </v-row>
 
     <!-- 分頁 -->
