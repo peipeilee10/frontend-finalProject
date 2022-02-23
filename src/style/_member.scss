@@ -1,6 +1,6 @@
-#member{
+#member {
   padding: 200px 0;
-  .box{
+  .box {
     height: 50px;
     width: 100px;
     line-height: 50px;
@@ -9,21 +9,26 @@
     background: white;
     border-radius: 30px;
   }
-  .v-tab{
+  .v-tab {
     color: $content-text;
   }
-  .v-tabs-slider-wrapper{
+  .v-tabs-slider-wrapper {
     color: $content-text !important;
   }
-  
 }
 
-#membersettings{
-  h1{
-    color: $content-text;
-    letter-spacing: .5rem;
+@include sm {
+  .abx {
+    flex-direction: row;
   }
-  .save-btn{
+}
+
+#membersettings {
+  h1 {
+    color: $content-text;
+    letter-spacing: 0.5rem;
+  }
+  .save-btn {
     width: 200px;
     background-color: $cyancolor;
     color: white;
@@ -31,18 +36,17 @@
   }
 }
 
-#memberOrders{
-  h1{
+#memberOrders {
+  h1 {
     color: $content-text;
-    letter-spacing: .5rem;
+    letter-spacing: 0.5rem;
   }
-  .v-data-table > .v-data-table__wrapper > table > thead > tr > th{
+  .v-data-table > .v-data-table__wrapper > table > thead > tr > th {
     font-size: 16px;
     text-align: center !important;
     color: $content-text;
   }
-  .v-application{
+  .v-application {
     text-align: center !important;
   }
 }
-

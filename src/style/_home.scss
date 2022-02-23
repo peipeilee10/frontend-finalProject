@@ -110,9 +110,10 @@
   width: 100%;
   position: relative;
   text-align: center;
-  h1 {
+  .serviceh1 {
     color: $grey;
     letter-spacing: 0.5rem;
+    padding-top: 50px;
   }
 
   .serviceProcess {
@@ -178,9 +179,43 @@
       }
     }
   }
+  .serviceProcess-sm {
+    color: $content-text;
+    font-weight: 500;
+    font-size: 1.2rem;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    width: 60%;
+    margin: auto;
+    text-align: left;
+    background-color: aqua;
+    padding: 1rem;
+  }
 }
 
-@include xs {
+@include md {
+  #service {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+      ),
+      url(../assets/image/servicebg_sm.jpg) no-repeat;
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+    background-size: cover;
+    height: 80vh;
+    // width: 100%;
+    position: relative;
+    text-align: center;
+    .serviceh1 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .serviceProcess-sm {
+      width: 30%;
+    }
+  }
 }
 
 // 團隊介紹

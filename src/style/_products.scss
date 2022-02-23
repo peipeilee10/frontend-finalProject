@@ -39,19 +39,25 @@
     color: $content-text;
     font-size: 1.1rem;
   }
-  // .productcol {
-  //   height: 400px;
-  // }
 }
-
+@include md {
+  #products {
+    padding: 150px 0;
+  }
+}
 @include sm {
   #products {
     .productrow {
       flex-direction: column;
     }
-    .bc {
+    .filtercol {
       display: flex;
       flex-direction: row !important;
+    }
+    .itemtitletext {
+      color: $content-text;
+      font-weight: 500;
+      font-size: 1.2rem;
     }
   }
 }
@@ -88,8 +94,9 @@
 }
 
 @include md {
-  .btn-1 {
-    display: block;
+  .quantitybtn {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -123,5 +130,16 @@
   h1,
   h2 {
     color: $content-text;
+  }
+}
+
+@include md {
+  #cart {
+    padding: 150px 0;
+    .step3 {
+      width: 100%;
+      text-align: center;
+      margin: auto;
+    }
   }
 }

@@ -14,6 +14,11 @@
     margin-bottom: 10px;
   }
 }
+@include md {
+  #appointment {
+    padding: 150px 0;
+  }
+}
 
 .appointmentcard {
   .price {

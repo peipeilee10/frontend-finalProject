@@ -1,18 +1,20 @@
 <template>
   <v-app>
     <v-main>
-    <router-view :key='$route.fullPath'></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
+  import VConsole from 'vconsole'
 
-export default {
-  name: 'App',
+  const vConsole = new VConsole()
+  export default {
+    name: 'App',
 
-  data: () => ({
-    //
-  })
-}
+    data: () => ({
+      //
+    })
+  }
 </script>

@@ -2,7 +2,7 @@
   <div style="margin-top: 100px" class="px-15" id="carouselChange">
     <h1 class="h1 text-center mb-10">前台輪播圖置換</h1>
     <v-row>
-      <v-col cols="4">
+      <v-col cols="12" lg="4">
         <!-- 新增彈跳視窗 -->
         <div class="add">
           <v-row justify="center">
@@ -56,7 +56,7 @@
         </div>
       </v-col>
 
-      <v-col cols="4" v-for="image in carousel" :key="image._id">
+      <v-col cols="12" lg="4" v-for="image in carousel" :key="image._id">
         <!-- 卡片區 -->
         <div>
           <v-card>

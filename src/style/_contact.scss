@@ -9,9 +9,12 @@
   }
 }
 
-@include md{
-  .contactrow{
-  flex-direction: column;
-  align-items: center;
+@include md {
+  #contactus {
+    padding: 150px 0;
+    .contactrow {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="photos">
+  <div id="adopt">
     <loading :active.sync="isLoading" color="#fb8c00"></loading>
     <h1 class="h1 text-center mb-3">
       流浪動物認養
@@ -12,8 +12,8 @@
         讓我們為浪浪找一個家
       </p>
     </div>
-    <v-row>
-      <v-col cols="2">
+    <v-row class="adoptrow">
+      <v-col cols="12" md="12" lg="2" class="filtercol">
         <!-- 分類 -->
         <v-tab class="mb-5 item" @click="petitem('狗')">
           <v-icon class="mr-5 item" large>mdi-dog-side</v-icon>
@@ -32,9 +32,15 @@
           小型
         </v-tab>
       </v-col>
-      <v-col cols="8">
+      <v-col cols="12" md="12" lg="8">
         <v-row>
-          <v-col cols="6" md="3" v-for="info in sliceitems" :key="info.index">
+          <v-col
+            lg="3"
+            md="6"
+            cols="12"
+            v-for="info in sliceitems"
+            :key="info.index"
+          >
             <v-card class="mx-auto" max-width="344">
               <v-img :src="info.album_file" height="350"></v-img>
 
@@ -64,9 +70,10 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="2"></v-col>
+      <v-col cols="12" md="12" lg="2" class="hidden-md-and-down"></v-col>
     </v-row>
 
+    <!-- 分頁 -->
     <div class="text-center mt-15">
       <v-pagination
         v-model="page"

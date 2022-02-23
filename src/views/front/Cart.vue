@@ -121,7 +121,7 @@
                   clearable
                   id="address"
                   v-model="form.address"
-                  placeholder="訂購人地址(若選擇宅配，必須填寫)"
+                  placeholder="訂購人地址"
                 ></v-text-field>
               </v-col>
             </v-row>

@@ -8,7 +8,7 @@
       @submit.prevent="submitsettings"
     >
       <v-row>
-        <v-col cols="6">
+        <v-col cols="12" lg="6">
           <v-label for="name">姓名</v-label>
           <v-text-field
             solo
@@ -20,7 +20,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" lg="6">
           <v-label for="phone">電話</v-label>
           <v-text-field
             solo
@@ -33,7 +33,7 @@
       </v-row>
 
       <v-row>
-        <v-col cols="6">
+        <v-col cols="12" lg="6">
           <v-label for="email">信箱</v-label>
           <v-text-field
             solo
@@ -44,7 +44,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" lg="6">
           <v-label for="address">地址</v-label>
           <v-text-field
             solo

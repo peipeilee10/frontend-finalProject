@@ -31,9 +31,10 @@
   }
 }
 
-@include sm{
-  #serviceitem{
+@include sm {
+  #serviceitem {
     width: 90%;
+    padding: 150px 0;
     .serviceMemo {
       margin-top: 100px;
       margin-left: 10px;
@@ -42,5 +43,4 @@
       color: $grey;
     }
   }
-  
 }

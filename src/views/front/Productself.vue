@@ -22,7 +22,7 @@
             {{ description }}
           </v-col>
           <v-row>
-            <v-col cols="12" lg="6" class="d-flex">
+            <v-col cols="12" lg="6" class="quantitybtn">
               <v-btn @click="minus" color="grey lighten-1" class="white--text">
                 <v-icon>mdi-minus</v-icon>
               </v-btn>

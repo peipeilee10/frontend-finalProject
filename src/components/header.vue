@@ -54,14 +54,9 @@
             color="red"
             :content="user.cart"
             v-if="user.cart"
-            class="mb-5 hidden-md-and-down"
+            class="mb-5"
           ></v-badge>
-          <v-icon
-            large
-            color="grey darken-1"
-            class="mr-5 hidden-md-and-down"
-            v-if="user.isLogin"
-          >
+          <v-icon large color="grey darken-1" class="mr-5" v-if="user.isLogin">
             mdi-cart-outline +
           </v-icon>
         </router-link>
@@ -214,12 +209,33 @@
               </v-list-item-content>
             </v-list-item>
 
-            <v-list-item to="/back/member" class="justify-center p-0">
+            <v-list-item
+              v-show="user.isLogin && !user.isAdmin"
+              to="/back/member"
+              class="justify-center p-0"
+            >
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
               <v-list-item-content class="justify-center">
                 會員專區
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item
+              v-show="user.isLogin && user.isAdmin"
+              to="/back/admin"
+              class="justify-center p-0"
+            >
+              <v-list-item-icon>
+                <v-icon>mdi-account-tie-hat</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content
+                v-if="user.isLogin && user.isAdmin"
+                class="justify-center"
+              >
+                管理員專區
               </v-list-item-content>
             </v-list-item>
 
