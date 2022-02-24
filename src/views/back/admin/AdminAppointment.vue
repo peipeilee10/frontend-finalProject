@@ -208,7 +208,7 @@
           this.eventsAll = data.result.map(appointment => {
             appointment.start = new Date(
               appointment.appointment.appointmentdate +
-                ' ' +
+                'T' +
                 appointment.appointment.appointmenttime
             )
             appointment.name =
@@ -216,7 +216,7 @@
               appointment.appointment.appointmenttime
             appointment.end = new Date(
               appointment.appointment.appointmentdate +
-                ' ' +
+                'T' +
                 appointment.appointment.appointmenttime
             )
             appointment.color = this.colors[this.rnd(0, this.colors.length - 1)]

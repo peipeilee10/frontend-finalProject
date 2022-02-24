@@ -14,6 +14,8 @@ import 'vue-img-inputer/dist/index.css'
 // vue-overlay
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+// vue-scroll-reveal
+import VueScrollReveal from 'vue-scroll-reveal'
 
 // import style
 import 'swiper/css/swiper.css'
@@ -24,6 +26,7 @@ Vue.component('ImgInputer', ImgInputer)
 Vue.use(VueSweetalert2)
 Vue.config.productionTip = false
 Vue.component('Loading', Loading)
+Vue.use(VueScrollReveal)
 
 new Vue({
   router,
@@ -31,3 +34,11 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+Vue.use(VueScrollReveal, {
+  class: 'v-scroll-reveal',
+  duration: 600,
+  scale: 1,
+  distance: '10px',
+  mobile: false
+})

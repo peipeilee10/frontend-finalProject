@@ -75,7 +75,7 @@
           <h1 class="text-center mb-15 mt-10 h1">請填寫訂購資訊</h1>
           <v-form ref="form" lazy-validation @submit.prevent="submitorders">
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-label for="name">訂購人姓名</v-label>
                 <v-text-field
                   solo
@@ -102,7 +102,7 @@
             </v-row>
 
             <v-row>
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-label for="email">信箱</v-label>
                 <v-text-field
                   solo
@@ -114,7 +114,7 @@
                   required
                 ></v-text-field>
               </v-col>
-              <v-col cols="6">
+              <v-col cols="12" md="6">
                 <v-label for="address">地址(非宅配無須填寫)</v-label>
                 <v-text-field
                   solo

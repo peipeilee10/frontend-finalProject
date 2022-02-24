@@ -44,6 +44,10 @@
 
 #footer {
   color: white;
+  .footerRow {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
   .membercenter {
     display: flex;
     flex-direction: column;
@@ -54,9 +58,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
   a {
     color: white;
+  }
+}
+
+@include md {
+  #footer {
+    .footerRow {
+      padding-top: 0px;
+    }
+    .contactus {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

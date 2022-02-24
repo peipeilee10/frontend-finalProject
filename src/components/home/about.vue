@@ -3,9 +3,18 @@
     <v-col cols="2"></v-col>
     <v-col cols="8" class="d-flex flex-row">
       <v-row>
-        <v-col cols="12" sm="6" xl="6" style="padding: 0" class="leftimage">
+        <v-col
+          cols="12"
+          sm="6"
+          xl="6"
+          style="text-align: center; padding: 0"
+          class="leftimage"
+        >
           <div class="img">
-            <img src="../../assets/image/aboutbigpics.jpg" />
+            <img
+              src="../../assets/image/aboutbigpics.jpg"
+              style="vertical-align: middle"
+            />
           </div>
         </v-col>
         <v-col
@@ -13,7 +22,7 @@
           sm="6"
           xl="6"
           class="d-flex flex-column"
-          style="width: 100%; padding: 0; padding-left: 30px"
+          style="width: 100%; padding: 12px; padding-left: 30px"
         >
           <v-row style="height: 66.666%" class="justify-center">
             <div class="d-flex flex-column justify-center align-center">
@@ -45,11 +54,17 @@
             </div>
           </v-row>
           <v-row style="height: 33.333%" class="rightimage">
-            <v-col cols="6" style="height: 100%">
-              <img src="../../assets/image/aboutcat.jpg" />
+            <v-col cols="6" style="height: 100%; padding: 0px">
+              <img
+                src="../../assets/image/aboutcat.jpg"
+                style="vertical-align: middle"
+              />
             </v-col>
-            <v-col cols="6">
-              <img src="../../assets/image/aboutdog.jpg" />
+            <v-col cols="6" style="padding: 0">
+              <img
+                src="../../assets/image/aboutdog.jpg"
+                style="vertical-align: middle"
+              />
             </v-col>
           </v-row>
         </v-col>

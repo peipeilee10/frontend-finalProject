@@ -22,7 +22,7 @@
             {{ description }}
           </v-col>
           <v-row>
-            <v-col cols="12" lg="6" class="quantitybtn">
+            <v-col cols="12" lg="6" class="quantitybtn d-flex">
               <v-btn @click="minus" color="grey lighten-1" class="white--text">
                 <v-icon>mdi-minus</v-icon>
               </v-btn>
@@ -36,6 +36,7 @@
               </v-btn>
             </v-col>
 
+            <!-- lg版按鈕 -->
             <v-col
               cols="12"
               lg="6"
@@ -59,6 +60,7 @@
               </v-btn>
             </v-col>
 
+            <!-- sm版按鈕 -->
             <v-col
               cols="12"
               lg="6"

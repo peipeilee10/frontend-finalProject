@@ -40,6 +40,11 @@
             prevEl: '.swiper-button-prev',
             clickable: true
           },
+          loop: true,
+          autoplay: {
+            delay: 6000,
+            disableOninteraction: false
+          },
           breakpoints: {
             1024: {
               slidesPerView: 3,

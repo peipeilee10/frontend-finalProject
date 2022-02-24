@@ -2,13 +2,13 @@
   <div>
     <v-card id="adminHeader">
       <v-row class="justify-space-between">
-        <v-col></v-col>
-        <v-col class="justify-center">
-          <v-card-title class="text-center justify-center py-6">
-            <h1 class="mx-auto pt-5 pb-5">後臺管理</h1>
+        <v-col cols="2" lg="4"></v-col>
+        <v-col cols="8" lg="4" class="justify-center">
+          <v-card-title class="text-center justify-center py-6 ">
+            <h1 class="mx-auto pt-5 pb-5 ">後臺管理</h1>
           </v-card-title>
         </v-col>
-        <v-col class="text-right">
+        <v-col cols="2" lg="4" class="text-right">
           <v-btn :ripple="false" plain class="mr-10 mt-10" to="/">
             <v-icon large color="#1D5452">mdi-home</v-icon>
           </v-btn>

@@ -17,12 +17,6 @@
   }
 }
 
-@include sm {
-  .abx {
-    flex-direction: row;
-  }
-}
-
 #membersettings {
   h1 {
     color: $content-text;

@@ -43,7 +43,7 @@
   #carousel {
     .carousel-img {
       width: 100vw;
-      height: 40%;
+      height: 50%;
       object-fit: cover;
     }
   }
@@ -51,10 +51,10 @@
 
 // 關於
 .about {
-  padding: 100px 0;
+  padding: 150px 0;
 
   img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
   }
@@ -252,6 +252,12 @@
   }
 }
 
+// @include md {
+//   #team {
+//     padding: 40px 0;
+//   }
+// }
+
 // 環境介紹
 
 #enviroment {
@@ -272,6 +278,14 @@
     color: white;
   }
 }
+@include md {
+  #enviroment {
+    padding: 0px 0;
+    h1 {
+      margin-bottom: 30px;
+    }
+  }
+}
 
 // 顧客好評
 #customerComment {
@@ -285,10 +299,16 @@
     font-size: 1.5rem;
     letter-spacing: 0.2em;
   }
-
-  @media (min-width: 1200px) {
-    .swiper-pagination {
-      display: none;
+}
+@media (min-width: 1200px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+@include md {
+  #customerComment {
+    .appointmentbtn {
+      margin-top: 20px;
     }
   }
 }
