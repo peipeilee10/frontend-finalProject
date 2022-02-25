@@ -8,6 +8,23 @@
     font-size: 1.2rem !important;
     font-weight: 300;
   }
+  // .logobox{
+  //   position: absolute;
+  //   top: 8%;
+  //   left: 50%;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   .logoimg {
+  //   width: 65px;
+  //   background-color: aqua;
+  //   }
+  //   .logotext{
+  //     font-size: 1.2rem;
+  //     font-weight: 450;
+  //   }
+  // }
+
   .logoimg {
     position: absolute;
     top: 8%;
@@ -16,6 +33,7 @@
     // z-index: 9999;
     width: 200px;
   }
+  
   .appbar {
     margin-top: 10px !important;
   }

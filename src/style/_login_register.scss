@@ -7,13 +7,26 @@
   .box {
     width: 500px;
     margin: auto;
-    background-color: $lightblue;
     padding: 100px 80px;
-    border-radius: 30px;
+    border-radius: 8px;
+    border: 3px solid #00acc1;
   }
   .btn-wrap {
     width: 100%;
     text-align: center;
+  }
+}
+
+@include md{
+  #login{
+    .box{
+      width: 350px;
+      padding: 50px 40px;
+    }
+    .btn-wrap{
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 
@@ -26,12 +39,20 @@
   .box {
     width: 500px;
     margin: auto;
-    background-color: $lightblue;
     padding: 100px 80px;
-    border-radius: 30px;
+    border-radius: 8px;
+    border: 3px solid #00acc1;
   }
   .btn-wrap {
     width: 100%;
     text-align: center;
+  }
+}
+@include md{
+  #register{
+    .box{
+      width: 350px;
+      padding: 50px 40px;
+    }
   }
 }

@@ -36,7 +36,7 @@
             class="mr-4 mt-10"
             to="/register"
           >
-            前往註冊
+            註冊
           </v-btn>
 
           <v-btn

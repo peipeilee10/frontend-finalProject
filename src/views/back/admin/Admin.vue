@@ -15,7 +15,7 @@
         </v-col>
       </v-row>
 
-      <v-tabs v-model="tab" background-color="transparent" color="#1D5452" grow>
+      <v-tabs v-model="tab" background-color="transparent" color="#1D5452"  class="container" grow>
         <v-tab to="/back/admin/">預約管理</v-tab>
         <v-tab to="/back/admin/orders">訂單管理</v-tab>
         <v-tab to="/back/admin/productSell">商品管理</v-tab>
