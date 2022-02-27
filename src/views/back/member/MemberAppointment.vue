@@ -212,8 +212,7 @@
                 appointment.appointment.appointmenttime
             )
             appointment.name =
-              appointment.appointment.name +
-              appointment.appointment.appointmenttime
+              appointment.appointment.name
             appointment.end = new Date(
               appointment.appointment.appointmentdate +
                 'T' +

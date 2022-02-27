@@ -55,6 +55,7 @@
       </div>
     </div>
 
+  <!-- 小版 -->
     <div class="serviceProcess2 d-sm-flex d-lg-none d-md-flex">
       <p>
         <v-icon color="#1d5452" class="mr-5 ">mdi-numeric-1-box-outline</v-icon>

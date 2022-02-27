@@ -27,11 +27,11 @@
 
   .logoimg {
     position: absolute;
-    top: 8%;
+    top: 12%;
     left: 50%;
     transform: translateX(-50%);
     // z-index: 9999;
-    width: 200px;
+    width: 150px;
   }
   
   .appbar {
@@ -52,6 +52,10 @@
   #headernav {
     #header {
       height: 80px;
+      .logoimg{
+        top: 20px;
+        width: 120px;
+      }
     }
   }
 }

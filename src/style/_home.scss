@@ -50,7 +50,7 @@
 }
 
 // 關於
-.about {
+#about {
   padding: 150px 0;
 
   img {
@@ -67,8 +67,8 @@
 }
 
 @include md {
-  .about {
-    padding: -100px 0;
+  #about {
+    padding: 80px 0;
   }
   .aboutustext {
     width: 100%;
@@ -79,7 +79,7 @@
 }
 
 @include md {
-  .about {
+  #about {
     .rightimage {
       display: none;
     }
@@ -93,7 +93,7 @@
 }
 
 @include xs {
-  .about {
+  #about {
     .leftimage {
       display: none;
     }

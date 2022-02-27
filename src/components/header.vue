@@ -18,7 +18,7 @@
       </v-col>
       <v-col class="d-flex justify-center align-center">
         <router-link to="/">
-          <img src="../assets/image/HappyShowerLogo-01.png" class="logoimg" />
+          <img src="../assets/image/logo_header-01.png" class="logoimg" />
         </router-link>
       </v-col>
       <v-col class="d-flex justify-center align-center">
