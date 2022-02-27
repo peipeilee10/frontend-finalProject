@@ -17,7 +17,7 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "Front" */ '../views/front/Home.vue'),
         meta: {
-          title: '關於我們 | Happy Shower'
+          title: '首頁 | Happy Shower'
         }
       },
       {
