@@ -81,7 +81,7 @@
         id="navbar"
         height="60px"
         min-width="100vw"
-        class="justify-end hidden-md-and-down cyan darken-1 appbar"
+        class="justify-end hidden-sm-and-down cyan darken-1 appbar"
       >
         <v-row class="d-flex justify-center">
           <v-toolbar-items>
