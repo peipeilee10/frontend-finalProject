@@ -30,7 +30,7 @@
 @include md {
   #carousel {
     margin-top: 80px;
-    height: calc(50% - 130px);
+    height: calc(50% - 80px);
     .carousel-img {
       width: 100vw;
       height: 50%;
@@ -179,6 +179,9 @@
       }
     }
   }
+  .serviceProcess2{
+    display: none;
+  }
 }
 
 @include md {
@@ -198,7 +201,11 @@
       padding-top: 20px;
       padding-bottom: 20px;
     }
+    .serviceProcess{
+      display: none;
+    }
     .serviceProcess2 {
+      display: block;
       flex-direction: column;
       width: 250px;
       margin: auto;

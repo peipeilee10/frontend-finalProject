@@ -1,6 +1,6 @@
 <template>
   <div id="products">
-    <p class="mb-10 ml-6 hidden-sm-and-up itemtitletext text-center">
+    <p class="mb-10 ml-6 hidden-md-and-up itemtitletext text-center">
       商品分類
     </p>
     <v-row no-gutters class="productrow">
@@ -8,7 +8,7 @@
       <v-col
         cols="12"
         md="3"
-        class="mb-10 text-center d-flex flex-column align-center filtercol"
+        class="mb-10 text-center d-flex flex-column align-center  filtercol"
       >
         <p class="itemtitle hidden-md-and-down">商品分類</p>
 

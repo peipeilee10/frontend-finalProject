@@ -21,11 +21,14 @@
     padding: 150px 0 150px 0;
     .adoptrow {
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .filtercol {
       display: flex;
       align-items: center;
       justify-content: center;
+    
     }
   }
 }

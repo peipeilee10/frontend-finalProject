@@ -8,29 +8,13 @@
     font-size: 1.2rem !important;
     font-weight: 300;
   }
-  // .logobox{
-  //   position: absolute;
-  //   top: 8%;
-  //   left: 50%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   .logoimg {
-  //   width: 65px;
-  //   background-color: aqua;
-  //   }
-  //   .logotext{
-  //     font-size: 1.2rem;
-  //     font-weight: 450;
-  //   }
-  // }
+
 
   .logoimg {
     position: absolute;
     top: 12%;
     left: 50%;
     transform: translateX(-50%);
-    // z-index: 9999;
     width: 150px;
   }
   
@@ -51,7 +35,7 @@
 @include md {
   #headernav {
     #header {
-      height: 80px;
+      height: 90px;
       .logoimg{
         top: 20px;
         width: 120px;
@@ -60,9 +44,6 @@
   }
 }
 
-// #navbar {
-//   position: fixed;
-// }
 
 #footer {
   color: white;

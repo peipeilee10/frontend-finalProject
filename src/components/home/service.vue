@@ -1,7 +1,7 @@
 <template>
   <div id="service">
     <h1 class="serviceh1">預約服務流程</h1>
-    <div class="serviceProcess d-none d-lg-flex">
+    <div class="serviceProcess">
       <div class="line"></div>
       <div class="reservateservice-wrap-upper">
         <div class="servicetext">
@@ -56,7 +56,7 @@
     </div>
 
   <!-- 小版 -->
-    <div class="serviceProcess2 d-sm-flex d-lg-none d-md-flex">
+    <div class="serviceProcess2 ">
       <p>
         <v-icon color="#1d5452" class="mr-5 ">mdi-numeric-1-box-outline</v-icon>
         預定美容日期

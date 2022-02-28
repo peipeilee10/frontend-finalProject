@@ -40,7 +40,7 @@
 
           <img src="../../assets/image/team02.jpg" />
 
-          <div class="mt-15 designer">
+          <div class="mt-10 designer">
             <h3>美容師</h3>
             <p>KEINA</p>
           </div>

@@ -40,11 +40,13 @@
     font-size: 1.1rem;
   }
 }
+
 @include md {
   #products {
     padding: 150px 0;
   }
 }
+
 @include sm {
   #products {
     .productrow {
@@ -53,6 +55,7 @@
     .filtercol {
       display: flex;
       flex-direction: row !important;
+      justify-content: center;
     }
     .itemtitletext {
       color: $content-text;
