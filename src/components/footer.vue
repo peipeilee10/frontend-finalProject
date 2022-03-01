@@ -7,9 +7,10 @@
           <v-col cols="12" md="6">
             <div class="membercenter">
               <p style="font-weight: 500">會員中心</p>
-              <p><router-link to="/service">訂單查詢</router-link></p>
-              <p><router-link to="/service">預約查詢</router-link></p>
-              <p><router-link to="/service">會員中心</router-link></p>
+              <p><router-link to="/back/member">會員中心</router-link></p>
+              <p><router-link to="/back/member/appointment">預約查詢</router-link></p>
+              <p><router-link to="/back/member/orders">訂單查詢</router-link></p>
+
             </div>
           </v-col>
           <v-col cols="12" md="6">
@@ -20,10 +21,10 @@
               <p>營業時間：11:30 ~ 20:00 周四公休</p>
               <p>LINE ID：@happyshower</p>
               <div class="d-flex">
-                <a href="#" class="me-2">
+                <a href="https://www.facebook.com/" target="_blank" class="me-2">
                   <v-icon color="white">mdi-facebook</v-icon>
                 </a>
-                <a href="#" class="me-2">
+                <a href="https://www.instagram.com/" target="_blank" class="me-2">
                   <v-icon color="white">mdi-instagram</v-icon>
                 </a>
               </div>
