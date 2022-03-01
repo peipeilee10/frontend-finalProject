@@ -16,9 +16,15 @@ import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 // vue-scroll-reveal
 import VueScrollReveal from 'vue-scroll-reveal'
-
-// import style
+// swiper
 import 'swiper/css/swiper.css'
+
+// gtag
+import VueGtag from 'vue-gtag'
+
+Vue.use(VueGtag, {
+  config: { id: 'G-Z4ZBXHLTXQ' },
+})
 
 Vue.use(VueAwesomeSwiper)
 Vue.mixin(mixin)
