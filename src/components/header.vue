@@ -6,10 +6,10 @@
         class="hidden-md-and-up ms-5"
       ></v-app-bar-nav-icon>
       <v-col class="d-flex justify-center align-center">
-        <a href="#" class="me-2 hidden-md-and-down">
+        <a href="https://www.facebook.com/" target="_blank" class="me-2 hidden-md-and-down">
           <v-icon large color="grey darken-1">mdi-facebook</v-icon>
         </a>
-        <a href="#" class="me-2 hidden-md-and-down">
+        <a href="https://www.instagram.com/" target="_blank" class="me-2 hidden-md-and-down">
           <v-icon large color="grey darken-1">mdi-instagram</v-icon>
         </a>
         <a href="#" class="me-2 hidden-md-and-down">

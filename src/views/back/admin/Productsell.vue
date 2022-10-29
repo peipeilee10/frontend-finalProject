@@ -6,16 +6,27 @@
           <!-- {{ item }} -->
           <img v-if="item.image" :src="item.image" style="height: 100px" />
         </template>
+        <template v-slot:item.name="{ item }">
+          <div class="name">
+            {{ item.name }}
+          </div>
+        </template>
         <template v-slot:item.price="{ item }" style="width: 50%">
           $&nbsp;{{ new Intl.NumberFormat('en-IN').format(item.price) }}
         </template>
         <template v-slot:item.sell="{ item }">
           {{ item.sell ? 'v' : '' }}
         </template>
-        <template v-slot:item.action="{ item }">
+        <template v-slot:item.category="{ item }">
+          <div class="category">
+            {{ item.category }}
+          </div>
+        </template>
+        <template v-slot:item.action="{ item }" >
+        <div class="actionrow">
           <v-btn
             color="warning white--text"
-            class="mr-5"
+            class="mr-2"
             @click="editProduct(item._id)"
           >
             <v-icon>mdi-lead-pencil</v-icon>
@@ -23,6 +34,7 @@
           <v-btn color="red white--text" @click="deleteProduct(item._id)">
             <v-icon>mdi-trash-can-outline</v-icon>
           </v-btn>
+          </div>
         </template>
       </v-data-table>
 
