@@ -210,13 +210,13 @@
             fd.append(key, this.form[key])
           }
         }
-        console.log(this.form)
+        console.log('fd' + fd)
 
         try {
           // id=0 =>增加品項
           if (!this.form._id) {
             console.log('增加商品')
-            console.log()
+            console.log('123' + fd)
             await this.api.post('/products', fd, {
               headers: {
                 authorization: 'Bearer ' + this.user.token
